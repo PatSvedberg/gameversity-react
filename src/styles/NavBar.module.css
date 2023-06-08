@@ -6,3 +6,11 @@
 span {
     color: #FFFFFF;
   }
+
+  .NavLink {
+    padding: 5px;
+  }
+
+  .Active i {
+    color: #FFA500;
+  }
