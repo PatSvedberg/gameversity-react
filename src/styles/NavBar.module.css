@@ -20,3 +20,7 @@ span {
   .Active i {
     color: #FFA500;
   }
+
+.Navbar.Toggle {
+  color: white;
+}
