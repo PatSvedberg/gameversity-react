@@ -9,7 +9,13 @@ span {
 
   .NavLink {
     padding: 5px;
+    color: #FFFFFF;
   }
+
+  .NavLink:hover {
+    color: #FFA500;
+  }
+
 
   .Active i {
     color: #FFA500;
