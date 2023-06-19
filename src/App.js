@@ -7,6 +7,7 @@ import "./api/axiosDefaults";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import TutorialCreateForm from "./pages/tutorials/TutorialCreateForm";
+import TutorialPage from "./pages/tutorials/TutorialPage";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -25,6 +26,7 @@ function App() {
             path="/tutorials/create"
             render={() => <TutorialCreateForm />}
           />
+          <Route exact path="/tutorials/:id" render={() => <TutorialPage />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

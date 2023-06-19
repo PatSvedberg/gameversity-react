@@ -1,0 +1,93 @@
+.Tutorial {
+    background-color: #ffffff;
+    border: 1px solid #dadadf;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .CustomCard {
+    border: none;
+  }
+  
+  .Tutorial figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+  .Heart {
+    color: #f85032;
+  }
+  
+  .Heart:hover {
+    color: #2142b2;
+  }
+  
+  .HeartOutline:hover {
+    color: #f85032;
+  }
+
+  .TopDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .TutorialContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .TutorialInfo > div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .TutorialRight {
+    display: flex;
+    flex-direction: column;
+    color: black;
+  }
+
+  .TutorialRight > span {
+    display: flex;
+    flex-direction: column;
+    color: black;
+  }
+
+  .LikeCommentContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .LikeCommentContainer span {
+    color: black;
+  }
+  
+  .ImageContainer {
+    margin-right: 1rem;
+  }
+
+  .Image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .DescText {
+    text-transform: capitalize; 
+    margin-bottom: 10px;
+  }
+ 
+  .StepItem {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  .StepImage {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px;
+  }

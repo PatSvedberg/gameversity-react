@@ -13,6 +13,13 @@ import { Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
+// Function to log the form data
+function logFormData(formData) {
+  for (let [key, value] of formData.entries()) {
+    console.log(`${key}: ${value}`);
+  }
+}
+
 function TutorialCreateForm() {
   const [errors, setErrors] = useState({});
 
@@ -24,7 +31,13 @@ function TutorialCreateForm() {
     engine: "",
     engine_version: "",
     theme: "",
-    steps: [0], // Array to store step descriptions and images
+    steps: [
+      {
+        step_description: "",
+        step_image: "",
+        tutorial: "",
+      },
+    ],
   });
 
   const {
@@ -42,6 +55,7 @@ function TutorialCreateForm() {
   const stepImageInput = useRef([]);
   const history = useHistory();
 
+  // Handle change for input fields
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -49,6 +63,7 @@ function TutorialCreateForm() {
     });
   };
 
+  // Handle change for the main tutorial image
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -59,29 +74,33 @@ function TutorialCreateForm() {
     }
   };
 
+  // Handle change for step description
   const handleChangeStep = (event, index) => {
     const updatedSteps = [...steps];
     updatedSteps[index].step_description = event.target.value;
-    setPostData({
-      ...postData,
+    setPostData((prevState) => ({
+      ...prevState,
       steps: updatedSteps,
-    });
+    }));
   };
 
+  // Handle change for step images
   const handleChangeStepImage = (event, index) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(steps[index].step_image);
       const updatedSteps = [...steps];
-      updatedSteps[index].step_image = URL.createObjectURL(
-        event.target.files[0]
-      );
-      setPostData({
-        ...postData,
+      updatedSteps[index] = {
+        ...updatedSteps[index],
+        step_image: URL.createObjectURL(event.target.files[0]),
+      };
+      setPostData((prevState) => ({
+        ...prevState,
         steps: updatedSteps,
-      });
+      }));
     }
   };
 
+  // Handle adding a new step
   const handleAddStep = () => {
     const newStep = {
       step_description: "",
@@ -91,35 +110,55 @@ function TutorialCreateForm() {
       ...prevState,
       steps: [...prevState.steps, newStep],
     }));
+    stepImageInput.current.push(React.createRef());
   };
 
+  // Validate that each step has a description
+  const validateSteps = () => {
+    return steps.every((step) => step.step_description.trim().length > 0);
+  };
+
+  // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!validateSteps()) {
+      setErrors({ ...errors, steps: "Each step must have a description." });
+      return;
+    }
     const formData = new FormData();
 
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("image", imageInput.current.files[0]);
+    formData.append("image", imageInput.current.files[0] || "");
     formData.append("language", language);
     formData.append("engine", engine);
     formData.append("engine_version", engine_version);
     formData.append("theme", theme);
 
-    // Append steps data
-    steps.forEach((step, index) => {
-      formData.append(`step_description[${index}]`, step.step_description);
-      formData.append(
-        `step_image[${index}]`,
-        stepImageInput.current[index].files[0]
-      );
-    });
+    // Add steps data as a JSON string
+    formData.append(
+      "steps",
+      JSON.stringify(
+        steps.map((step, index) => ({
+          step_description: step.step_description,
+          order: index + 1,
+        }))
+      )
+    );
 
     try {
-      console.log("FormData:", formData);
-      const { data } = await axiosReq.post("tutorials/", formData);
-      history.push(`/tutorials/${data.id}`);
+      // Create tutorial with steps
+      const { data: tutorialData } = await axiosReq.post(
+        "tutorials/",
+        formData
+      );
+
+      // Get tutorial ID from response
+      const tutorialId = tutorialData.id;
+
+      history.push(`/tutorials/${tutorialId}`);
     } catch (err) {
-      console.log("Error Response:", err.response);
+      console.log("Error Response:", err.response.data);
       if (err.response && err.response.status !== 401) {
         setErrors(err.response.data);
       }
@@ -131,7 +170,7 @@ function TutorialCreateForm() {
       {steps.map((step, index) => (
         <div key={index}>
           <Form.Group>
-            <Form.Label>Step Description</Form.Label>
+            <Form.Label>Step {index + 1} Description</Form.Label>
             <Form.Control
               as="textarea"
               rows={6}
@@ -141,7 +180,7 @@ function TutorialCreateForm() {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Step Image</Form.Label>
+            <Form.Label>Step {index + 1} Image</Form.Label>
             {step.step_image ? (
               <>
                 <figure>
