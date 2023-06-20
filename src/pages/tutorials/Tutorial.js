@@ -6,6 +6,8 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Comments = ({ comments }) => {
   return (
@@ -45,6 +47,20 @@ const Tutorial = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/tutorials/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/tutorials/${id}/`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleLike = async () => {
     try {
@@ -94,6 +110,11 @@ const Tutorial = (props) => {
           {owner}
         </Link>
         <h2>{title}</h2>
+        <div>
+          {is_owner && tutorialPage && (
+            <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
+          )}
+        </div>
       </div>
       <Card className={styles.CustomCard}>
         <small className="DateText">
@@ -114,7 +135,6 @@ const Tutorial = (props) => {
                   <img src={image} alt={Image} className={styles.Image} />
                 </Link>
               </div>
-              {is_owner && tutorialPage && "..."}
               {is_owner ? (
                 <OverlayTrigger
                   placement="top"
@@ -148,11 +168,6 @@ const Tutorial = (props) => {
               {comments_count}
             </Media>
             <Comments comments={["Comment 1", "Comment 2", "Comment 3"]} />
-            {is_owner && (
-              <Link to={`/tutorials/${id}/edit`}>
-                <button>Edit</button>
-              </Link>
-            )}
           </Card.Body>
         </Card>
         {steps && steps.length > 0 && (
