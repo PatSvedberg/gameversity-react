@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
-import Media from "react-bootstrap/Media";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-import Avatar from "../../components/Avatar";
 import styles from "../../styles/Tutorial.module.css";
 import Divider from "@mui/material/Divider";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Comments = ({ comments }) => {
   return (
@@ -38,32 +37,61 @@ const Tutorial = (props) => {
     theme,
     steps,
     like_id,
-    currentUser,
     comments_count,
     likes_count,
+    tutorialPage,
+    setTutorials,
   } = props;
 
+  const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
-  const renderTooltip = (props) => (
-    <Tooltip {...props}>Avatar tooltip example</Tooltip>
-  );
 
-  function renderHeartWithLikeCount(heartIcon) {
-    return (
-      <div>
-        {heartIcon}
-        <span>Likes: {likes_count}</span>
-      </div>
-    );
-  }
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { tutorial: id });
+      setTutorials((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((tutorial) => {
+          return tutorial.id === id
+            ? {
+                ...tutorial,
+                likes_count: tutorial.likes_count + 1,
+                like_id: data.id,
+              }
+            : tutorial;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}/`);
+      setTutorials((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((tutorial) => {
+          return tutorial.id === id
+            ? {
+                ...tutorial,
+                likes_count: tutorial.likes_count - 1,
+                like_id: null,
+              }
+            : tutorial;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className={styles.Full}>
       <div className={styles.TopDiv}>
         <Link to={`/profiles/${profile_id}`}>
-          <OverlayTrigger placement="top" overlay={renderTooltip}>
-            <Avatar src={profile_image} height={55} />
-          </OverlayTrigger>
+          <Avatar src={profile_image} height={55} />
+          {owner}
         </Link>
         <h2>{title}</h2>
       </div>
@@ -86,41 +114,38 @@ const Tutorial = (props) => {
                   <img src={image} alt={Image} className={styles.Image} />
                 </Link>
               </div>
-              {is_owner
-                ? renderHeartWithLikeCount(
-                    <OverlayTrigger
-                      placement="top"
-                      overlay={
-                        <Tooltip>You can&apos;t like your own post!</Tooltip>
-                      }
-                    >
-                      <i className="far fa-heart" />
-                    </OverlayTrigger>
-                  )
-                : like_id
-                ? renderHeartWithLikeCount(
-                    <span onClick={() => {}}>
-                      <i className={`fas fa-heart ${styles.Heart}`} />
-                    </span>
-                  )
-                : currentUser
-                ? renderHeartWithLikeCount(
-                    <span onClick={() => {}}>
-                      <i className={`far fa-heart ${styles.HeartOutline}`} />
-                    </span>
-                  )
-                : renderHeartWithLikeCount(
-                    <OverlayTrigger
-                      placement="top"
-                      overlay={<Tooltip>Log in to like posts!</Tooltip>}
-                    >
-                      <i className="far fa-heart" />
-                    </OverlayTrigger>
-                  )}
-              <div className={styles.CommentContainer}>
+              {is_owner && tutorialPage && "..."}
+              {is_owner ? (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={
+                    <Tooltip>You can&apos;t like your own post!</Tooltip>
+                  }
+                >
+                  <i className="far fa-heart" />
+                </OverlayTrigger>
+              ) : like_id ? (
+                <span onClick={handleUnlike}>
+                  <i className={`fas fa-heart ${styles.Heart}`} />
+                </span>
+              ) : currentUser ? (
+                <span onClick={handleLike}>
+                  <i className={`far fa-heart ${styles.HeartOutline}`} />
+                </span>
+              ) : (
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip>Log in to like posts!</Tooltip>}
+                >
+                  <i className="far fa-heart" />
+                </OverlayTrigger>
+              )}
+
+              {likes_count}
+              <Link to={`/tutorials/${id}`}>
                 <i className="far fa-comments" />
-                <span>Comments: {comments_count}</span>
-              </div>
+              </Link>
+              {comments_count}
             </Media>
             <Comments comments={["Comment 1", "Comment 2", "Comment 3"]} />
             {is_owner && (
@@ -139,19 +164,19 @@ const Tutorial = (props) => {
                   <h5 className={styles.DescText}>{description}</h5>
                   <div>
                     <p>
-                      <strong>Language:</strong>
+                      <strong>Language: </strong>
                       {language}
                     </p>
                     <p>
-                      <strong>Engine:</strong>
+                      <strong>Engine: </strong>
                       {engine}
                     </p>
                     <p>
-                      <strong>Engine version:</strong>
+                      <strong>Engine version: </strong>
                       {engine_version}
                     </p>
                     <p>
-                      <strong>Theme:</strong>
+                      <strong>Theme: </strong>
                       {theme}
                     </p>
                   </div>
