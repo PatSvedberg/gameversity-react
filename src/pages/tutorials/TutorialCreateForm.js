@@ -14,11 +14,12 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 // Function to log the form data
-function logFormData(formData) {
+/* function logFormData(formData) {
   for (let [key, value] of formData.entries()) {
     console.log(`${key}: ${value}`);
   }
 }
+*/
 
 function TutorialCreateForm() {
   const [errors, setErrors] = useState({});
