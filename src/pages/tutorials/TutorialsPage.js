@@ -12,6 +12,8 @@ import styles from "../../styles/TutorialsPage.module.css";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function TutorialsPage({ message, filter = "" }) {
   const [tutorials, setTutorials] = useState({ results: [] });
@@ -60,13 +62,20 @@ function TutorialsPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {tutorials.results.length ? (
-              tutorials.results.map((tutorial) => (
-                <Tutorial
-                  key={tutorial.id}
-                  {...tutorial}
-                  setTutorials={setTutorials}
-                />
-              ))
+              <InfiniteScroll
+                dataLength={tutorials.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!tutorials.next}
+                next={() => fetchMoreData(tutorials, setTutorials)}
+              >
+                {tutorials.results.map((tutorial) => (
+                  <Tutorial
+                    key={tutorial.id}
+                    {...tutorial}
+                    setTutorials={setTutorials}
+                  />
+                ))}
+              </InfiniteScroll>
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
