@@ -30,14 +30,10 @@ function TutorialPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <Container className={appStyles.Content}>
-          <p>Popular profiles for mobile</p>
           <Tutorial {...post.results[0]} setPost={setPost} />
         </Container>
-        <Container className={appStyles.Content}>Comments</Container>
       </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop
-      </Col>
+      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2"></Col>
     </Row>
   );
 }

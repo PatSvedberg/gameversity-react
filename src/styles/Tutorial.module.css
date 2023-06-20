@@ -1,18 +1,37 @@
+.FullTutorialContainer {
+  background-color: black;
+}
+
 .Tutorial {
     background-color: #ffffff;
-    border: 1px solid #dadadf;
+    border: 1px solid #ffa500;
     border-radius: 2px;
     margin-bottom: 16px;
     text-align: center;
+    background-color: #ffa500;
   }
   
   .CustomCard {
     border: none;
+    background-color: black;
+    color: white;
+  }
+
+  h2 {
+    color: white;
   }
   
   .Tutorial figure,
   h5 {
     margin: 0 0;
+  }
+
+  .DateText {
+    color: white;
+  }
+
+  small {
+    margin-left: 10px;
   }
   
   .Heart {
@@ -32,11 +51,13 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: black;
   }
 
   .TutorialContainer {
     display: flex;
     flex-direction: row;
+    background-color: black;
   }
 
   .TutorialInfo > div {
@@ -47,7 +68,7 @@
   .TutorialRight {
     display: flex;
     flex-direction: column;
-    color: black;
+    background-color: black;
   }
 
   .TutorialRight > span {
@@ -56,13 +77,14 @@
     color: black;
   }
 
-  .LikeCommentContainer {
+  .CommentContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
   }
 
   .LikeCommentContainer span {
-    color: black;
+    color: white;
   }
   
   .ImageContainer {
@@ -78,6 +100,12 @@
     text-transform: capitalize; 
     margin-bottom: 10px;
   }
+
+  .StepHeader {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
  
   .StepItem {
     display: flex;
@@ -90,4 +118,12 @@
     max-width: 100%;
     height: auto;
     margin-right: 10px;
+  }
+
+  .CommentsContainer {
+    margin-top: 16px;
+  }
+  
+  .Comment {
+    margin-bottom: 8px;
   }
