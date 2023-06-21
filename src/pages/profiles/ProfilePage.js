@@ -31,7 +31,8 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const { setProfileData, handleSubscribe } = useSetProfileData();
+  const { setProfileData, handleSubscribe, handleUnsubscribe } =
+    useSetProfileData();
   const { pageProfile } = useProfileData();
 
   const [profile] = pageProfile.results;
@@ -91,7 +92,7 @@ function ProfilePage() {
             (profile?.subscribing_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
-                onClick={() => {}}
+                onClick={() => handleUnsubscribe(profile)}
               >
                 Unsubscribe
               </Button>
