@@ -12,10 +12,10 @@ function TutorialPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const response = await axiosReq.get(`/tutorials/${id}`);
-        const tutorial = response.data;
+        const [{ data: tutorial }] = await Promise.all([
+          axiosReq.get(`/tutorials/${id}`),
+        ]);
         setTutorials({ results: [tutorial] });
-        console.log(tutorial);
       } catch (err) {
         console.log(err);
       }

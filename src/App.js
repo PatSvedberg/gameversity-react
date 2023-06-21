@@ -10,6 +10,7 @@ import TutorialCreateForm from "./pages/tutorials/TutorialCreateForm";
 import TutorialPage from "./pages/tutorials/TutorialPage";
 import TutorialsPage from "./pages/tutorials/TutorialsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import TutorialEditForm from "./pages/tutorials/TutorialEditForm";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -58,6 +59,11 @@ function App() {
             render={() => <TutorialCreateForm />}
           />
           <Route exact path="/tutorials/:id" render={() => <TutorialPage />} />
+          <Route
+            exact
+            path="/tutorials/:id/edit"
+            render={() => <TutorialEditForm />}
+          />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

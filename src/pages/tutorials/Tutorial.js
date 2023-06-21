@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../../styles/Tutorial.module.css";
 import Divider from "@mui/material/Divider";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -8,19 +8,14 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
-const Comments = ({ comments }) => {
-  return (
-    <div className={styles.CommentsContainer}>
-      <h6>Comments:</h6>
-      {comments.map((comment, index) => (
-        <div key={index} className={styles.Comment}>
-          <p>{comment}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
+import Container from "react-bootstrap/Container";
+import appStyles from "../../App.module.css";
+import CommentCreateForm from "../comments/CommentCreateForm";
+import Comment from "../comments/Comment";
+import { axiosReq } from "../../api/axiosDefaults";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 
 const Tutorial = (props) => {
   const {
@@ -48,6 +43,22 @@ const Tutorial = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const [comments, setComments] = useState({ results: [] });
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const [{ data: comments }] = await Promise.all([
+          axiosReq.get(`/comments/?tutorial=${id}`),
+        ]);
+        setComments(comments);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    handleMount();
+  }, [id]);
 
   const handleEdit = () => {
     history.push(`/tutorials/${id}/edit`);
@@ -64,10 +75,10 @@ const Tutorial = (props) => {
 
   const handleLike = async () => {
     try {
-      const { data } = await axiosRes.post("/likes/", { tutorial: id });
-      setTutorials((prevPosts) => ({
-        ...prevPosts,
-        results: prevPosts.results.map((tutorial) => {
+      const { data } = await axiosRes.tutorial("/likes/", { tutorial: id });
+      setTutorials((prevTutorial) => ({
+        ...prevTutorial,
+        results: prevTutorial.results.map((tutorial) => {
           return tutorial.id === id
             ? {
                 ...tutorial,
@@ -85,9 +96,9 @@ const Tutorial = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
-      setTutorials((prevPosts) => ({
-        ...prevPosts,
-        results: prevPosts.results.map((tutorial) => {
+      setTutorials((prevTutorial) => ({
+        ...prevTutorial,
+        results: prevTutorial.results.map((tutorial) => {
           return tutorial.id === id
             ? {
                 ...tutorial,
@@ -132,7 +143,7 @@ const Tutorial = (props) => {
             <Media className={styles.TutorialRight}>
               <div className={styles.ImageContainer}>
                 <Link to={`/profiles/${profile_id}`}>
-                  <img src={image} alt={Image} className={styles.Image} />
+                  <img src={image} className={styles.Image} />
                 </Link>
               </div>
               {is_owner ? (
@@ -167,7 +178,40 @@ const Tutorial = (props) => {
               </Link>
               {comments_count}
             </Media>
-            <Comments comments={["Comment 1", "Comment 2", "Comment 3"]} />
+            <Container className={appStyles.Comment}>
+              {currentUser ? (
+                <CommentCreateForm
+                  profile_id={currentUser.profile_id}
+                  profileImage={profile_image}
+                  tutorial={id}
+                  setTutorials={setTutorials}
+                  setComments={setComments}
+                />
+              ) : comments.results.length ? (
+                "Comments"
+              ) : null}
+              {comments.results.length ? (
+                <InfiniteScroll
+                  dataLength={comments.results.length}
+                  loader={<Asset spinner />}
+                  hasMore={!!comments.next}
+                  next={() => fetchMoreData(comments, setComments)}
+                >
+                  {comments.results.map((comment) => (
+                    <Comment
+                      key={comment.id}
+                      {...comment}
+                      setTutorials={setTutorials}
+                      setComments={setComments}
+                    />
+                  ))}
+                </InfiniteScroll>
+              ) : currentUser ? (
+                <span>No comments yet, be the first to comment!</span>
+              ) : (
+                <span>No comments... yet</span>
+              )}
+            </Container>
           </Card.Body>
         </Card>
         {steps && steps.length > 0 && (
@@ -211,7 +255,6 @@ const Tutorial = (props) => {
                         <div className={styles.StepImageContainer}>
                           <img
                             src={step.step_image}
-                            alt={step.step_description}
                             className={styles.StepImage}
                           />
                         </div>
