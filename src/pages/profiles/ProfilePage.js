@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Image, Button } from "react-bootstrap";
+
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import InfiniteScroll from "react-infinite-scroll-component";
 
 import Asset from "../../components/Asset";
-import Tutorial from "../tutorials/Tutorial";
-import NoResults from "../../assets/no-results.png";
 
 import styles from "../../styles/ProfilePage.module.css";
 import appStyles from "../../App.module.css";
@@ -21,7 +18,11 @@ import {
   useProfileData,
   useSetProfileData,
 } from "../../contexts/ProfileDataContext";
+import { Button, Image } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Tutorial from "../tutorials/Tutorial";
 import { fetchMoreData } from "../../utils/utils";
+import NoResults from "../../assets/no-results.png";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -30,7 +31,7 @@ function ProfilePage() {
   const currentUser = useCurrentUser();
   const { id } = useParams();
 
-  const setProfileData = useSetProfileData();
+  const { setProfileData, handleSubscribe } = useSetProfileData();
   const { pageProfile } = useProfileData();
 
   const [profile] = pageProfile.results;
@@ -71,35 +72,35 @@ function ProfilePage() {
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
-              <div>{profile?.tutorial_count}</div>
+              <div>{profile?.tutorials_count}</div>
               <div>Tutorials</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.followers_count}</div>
-              <div>followers</div>
+              <div>{profile?.subscribers_count}</div>
+              <div>Subscribers</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.following_count}</div>
-              <div>following</div>
+              <div>{profile?.subscribing_count}</div>
+              <div>Subscribing</div>
             </Col>
           </Row>
         </Col>
         <Col lg={3} className="text-lg-right">
           {currentUser &&
             !is_owner &&
-            (profile?.following_id ? (
+            (profile?.subscribing_id ? (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
                 onClick={() => {}}
               >
-                unfollow
+                Unsubscribe
               </Button>
             ) : (
               <Button
                 className={`${btnStyles.Button} ${btnStyles.Black}`}
-                onClick={() => {}}
+                onClick={() => handleSubscribe(profile)}
               >
-                follow
+                Subscribe
               </Button>
             ))}
         </Col>

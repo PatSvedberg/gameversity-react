@@ -38,7 +38,7 @@ function App() {
             render={() => (
               <TutorialsPage
                 message="No results found. Try another keyword"
-                filter={`owner__followed__owner__profile=${profile_id}&`}
+                filter={`owner__subscribed__owner__profile=${profile_id}&`}
               />
             )}
           />
