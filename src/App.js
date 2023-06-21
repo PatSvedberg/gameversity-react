@@ -11,6 +11,7 @@ import TutorialPage from "./pages/tutorials/TutorialPage";
 import TutorialsPage from "./pages/tutorials/TutorialsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import TutorialEditForm from "./pages/tutorials/TutorialEditForm";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -64,6 +65,7 @@ function App() {
             path="/tutorials/:id/edit"
             render={() => <TutorialEditForm />}
           />
+          <Route exact path="/profiles/:id/" render={() => <ProfilePage />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
