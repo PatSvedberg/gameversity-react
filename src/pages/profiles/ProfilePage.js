@@ -20,7 +20,7 @@ import {
 } from "../../contexts/ProfileDataContext";
 import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Tutorial from "../tutorials/Tutorial";
+import Tutorial from "../tutorials/TutorialFeedCard";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 

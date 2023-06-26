@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import Tutorial from "./Tutorial";
+import Tutorial from "./TutorialFeedCard";
 import Asset from "../../components/Asset";
 
 import appStyles from "../../App.module.css";
