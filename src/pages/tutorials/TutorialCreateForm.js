@@ -24,10 +24,19 @@ function TutorialCreateForm() {
     engine: "",
     engine_version: "",
     theme: "",
+    instructions: "",
   });
 
-  const { title, description, image, language, engine, engine_version, theme } =
-    postData;
+  const {
+    title,
+    description,
+    image,
+    language,
+    engine,
+    engine_version,
+    theme,
+    instructions,
+  } = postData;
 
   const imageInput = useRef(null);
   const history = useHistory();
@@ -60,6 +69,7 @@ function TutorialCreateForm() {
     formData.append("engine", engine);
     formData.append("engine_version", engine_version);
     formData.append("theme", theme);
+    formData.append("instructions", instructions);
 
     try {
       const { data: tutorialData } = await axiosReq.post(
@@ -172,6 +182,16 @@ function TutorialCreateForm() {
                   type="text"
                   name="theme"
                   value={theme}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label>Instructions</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={6}
+                  name="instructions"
+                  value={instructions}
                   onChange={handleChange}
                 />
               </Form.Group>
