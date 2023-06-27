@@ -14,7 +14,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function TutorialCreateForm() {
-  const [errors, setErrors] = useState({});
+  const [setErrors] = useState({});
 
   const [postData, setPostData] = useState({
     title: "",
