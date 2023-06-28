@@ -23,6 +23,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Tutorial from "../tutorials/TutorialFeedCard";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -61,6 +62,7 @@ function ProfilePage() {
 
   const mainProfile = (
     <>
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -73,16 +75,16 @@ function ProfilePage() {
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
-              <div>{profile?.tutorials_count}</div>
               <div>Tutorials</div>
+              <div>{profile?.tutorial_count}</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.subscribers_count}</div>
               <div>Subscribers</div>
+              <div>{profile?.subscribers_count}</div>
             </Col>
             <Col xs={3} className="my-2">
-              <div>{profile?.subscribing_count}</div>
               <div>Subscribing</div>
+              <div>{profile?.subscribing_count}</div>
             </Col>
           </Row>
         </Col>
