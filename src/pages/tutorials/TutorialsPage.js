@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Tutorial from "./TutorialFeedCard";
 import Asset from "../../components/Asset";
-
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/TutorialsPage.module.css";
 import { useLocation } from "react-router";
@@ -21,6 +21,7 @@ function TutorialsPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [query, setQuery] = useState("");
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchTutorial = async () => {
@@ -42,7 +43,7 @@ function TutorialsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
