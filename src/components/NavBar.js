@@ -46,7 +46,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/feed"
       >
-        <i className="fas fa-stream"></i>Feed
+        <i className="fa-solid fa-users"></i>Subscriptions
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -112,7 +112,7 @@ const NavBar = () => {
               activeClassName={styles.Active}
               to="/"
             >
-              <i className="fas fa-home"></i>Home
+              <i className="fa-solid fa-landmark"></i>Home
             </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
