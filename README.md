@@ -1,3 +1,8 @@
+# Gameversity - React
+
+# Project Goals
+The primary goal of this project is to create a website where game developers can upload their own game development tutorials in text form. There are a lot of video tutorials for game development, but sometimes a smaller tutorial with text and pictures can be easier. This website aims to become a comprehensive hub for game development knowledge, enabling developers from all around the world to share their wisdom and learn from each other. Whether you're an experienced developer with a lot of knowledge to share or a newbie looking for guidance, this site is for you.
+
 # User Stories
 ## Navigation & Authentication
 * **Navigation** - As a User I can I can view a navbar from every page so that recived I can navigate easily between pages
