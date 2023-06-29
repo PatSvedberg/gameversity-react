@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import Upload from "../../assets/upload.png";
 import styles from "../../styles/TutorialCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -94,9 +93,8 @@ function TutorialCreateForm() {
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-          >
+          <Container className={styles.FullForm}>
+            <h2>Create you own tutorial</h2>
             <div className="text-center">
               <Form.Group>
                 <Form.Label>Title</Form.Label>
@@ -125,7 +123,7 @@ function TutorialCreateForm() {
                     </figure>
                     <div>
                       <Form.Label
-                        className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                        className={styles.FormButton}
                         htmlFor="image-upload"
                       >
                         Change the image
@@ -152,7 +150,7 @@ function TutorialCreateForm() {
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Language</Form.Label>
+                <Form.Label>Coding Language</Form.Label>
                 <Form.Control
                   type="text"
                   name="language"
@@ -197,13 +195,7 @@ function TutorialCreateForm() {
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Text className="text-muted">
-                You must fill in all fields before submitting the tutorial.
-              </Form.Text>
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.Green}`}
-                type="submit"
-              >
+              <Button className={styles.FormButton} type="submit">
                 Create Tutorial
               </Button>
             </div>

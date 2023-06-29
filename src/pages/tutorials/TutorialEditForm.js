@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import Upload from "../../assets/upload.png";
 import styles from "../../styles/TutorialCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
@@ -127,9 +126,8 @@ function TutorialEditForm() {
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-          <Container
-            className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
-          >
+          <Container className={styles.FullForm}>
+            <h2>Edit your tutorial</h2>
             <div className="text-center">
               <Form.Group>
                 <Form.Label>Title</Form.Label>
@@ -159,7 +157,7 @@ function TutorialEditForm() {
                     </figure>
                     <div>
                       <Form.Label
-                        className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                        className={styles.FormButton}
                         htmlFor="image-upload"
                       >
                         Change the image
@@ -231,15 +229,12 @@ function TutorialEditForm() {
                 />
               </Form.Group>
               <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                className={styles.FormButton}
                 onClick={() => history.goBack()}
               >
                 Cancel
               </Button>
-              <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                type="submit"
-              >
+              <Button className={styles.FormButton} type="submit">
                 Save
               </Button>
             </div>

@@ -1,3 +1,40 @@
 .Container {
     min-height: 343px;
-  }
+}
+
+.FullForm {
+  background-color: black;
+  color: white;
+  padding: 10px 50px 40px 50px;
+}
+
+h2 {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.FullForm input, .FullForm textarea{
+  color: orange;
+}
+
+.FullForm input[type="text"], .FullForm textarea {
+  border: 3px solid orange;
+  background-color : rgb(255, 226, 172); 
+}
+
+.FormButton {
+  color: black;
+  background-color : orange;
+  color: black;
+}
+
+.FormButton:hover {
+  color: orange;
+  border: 3px solid orange;
+  background-color : rgb(0, 0, 0);
+  color: white;
+}
+
+.FullForm input, .FullForm textarea{
+  color: black;
+}
