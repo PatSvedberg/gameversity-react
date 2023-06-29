@@ -104,6 +104,28 @@ Finally, users can provide the step-by-step instructions of their tutorial in th
 <br />
 The search bar operates by matching the entered keyword to various fields in the tutorial data. When a user enters a keyword, the search function scans through all tutorials and returns those that have the keyword in their title, engine, coding language, theme, or the username of the tutorial creator. This functionality ensures a comprehensive search mechanism that can help users find exactly what they are looking for.
 
+## Edit Tutorial Page
+The Edit Tutorial Page allows users to modify the details of an existing tutorial. This page is accessible only to the creator of the tutorial from inside the tutorial view by clicking the three dots in the top-right corner of it, ensuring that only the owner has the rights to make changes.
+<br />
+<br />
+When users access the Edit Tutorial Page, they are presented with a form identical to the Create Tutorial Form. However, this form is pre-populated with the existing details of the tutorial. The pre-populated fields include the tutorial title, description, image, coding language, game engine, game engine version, theme, and tutorial instructions. Users can then make changes or updates to any of these fields as needed before saving the modified tutorial.
+
+## Profile Page
+The profile page is a personalized space for users to showcase their identity and tutorials. It is designed to provide a snapshot of a user's activities and contributions to the platform.
+<br />
+<br />
+At the top of the profile page, users can see their profile picture and username. The profile picture helps to personalize the page, while the username provides a unique identifier for the user within the platform.
+<br />
+<br />
+Just below the username, users can see the count of their created tutorials, the number of subscribers they have, and the number of other users they are subscribing to. These numbers provide a quick overview of the user's engagement with the platform.
+<br />
+<br />
+The bio section allows users to write a few lines about themselves. This could include their interests, expertise, or anything else they'd like to share with the community.
+<br />
+<br />
+The bottom section of the profile page presents a feed of the user's created tutorials. This gives others a quick way to access and browse through the tutorials created by the user.
+
+
 # Deployment
 ## Github
 ### Create Repository
