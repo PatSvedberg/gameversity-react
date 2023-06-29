@@ -14,7 +14,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function TutorialCreateForm() {
-  useRedirect("loggedOut");
+  //useRedirect("loggedOut");
   const [setErrors] = useState({});
 
   const [postData, setPostData] = useState({
