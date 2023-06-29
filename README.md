@@ -124,7 +124,21 @@ The bio section allows users to write a few lines about themselves. This could i
 <br />
 <br />
 The bottom section of the profile page presents a feed of the user's created tutorials. This gives others a quick way to access and browse through the tutorials created by the user.
+<br />
+<br />
+The dropdown menu, accessible via a three-dot icon at the top right of the profile page, provides a quick and easy way for users to access key account-related actions. These actions include changing their username, password, and editing their profile with a new bio or profile picture.
 
+### Change Username
+By clicking on this option, users are presented with a form field where they can input a new username. After confirming their choice, the username on the account is updated.
+### Change Password
+This option allows users to change their password. It will present users with a form where they can input their new password, and then enter a new password again for verification.
+### Edit Profile
+The 'Edit Profile' option takes users to a separate page where they can update their bio and profile picture. This page contains a textfield for the bio and an uploader for the profile picture.
+
+### Subscribe
+When you visit another user's profile, you will see a 'Subscribe' button. Clicking this button subscribes you to the user, meaning their tutorials will now appear in your tutorial feed. The 'Subscribe' button then changes to an 'Unsubscribe' button.
+### Unsubscribe
+If you're already subscribed to a user, the 'Subscribe' button will be replaced with an 'Unsubscribe' button. Clicking this button will unsubscribe you from the user, and their tutorials will no longer appear in your tutorial feed.
 
 # Deployment
 ## Github
