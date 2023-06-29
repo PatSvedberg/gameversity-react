@@ -41,9 +41,45 @@ The primary goal of this project is to create a website where game developers ca
 * **User information** - As a user I can see information of users so that I can see their picture, name, bio ect
 * **See user's posted tutorials** - As a user I can view the tutorials posted by a user so that I can find more posts that I might like and decide if I want to follow them
 * **Update username and password** - As a logged in user I can update my username and password so that I can change my username and keep my profile secure
-
 <hr />
 
+# Agile Development Methodology
+
+GitHub issues and projects were utilized to document and track an agile development approach. Each user story was represented by a GitHub issue, with labels indicating whether they were necessary for the Minimum Viable Product (MVP). The product backlog was symbolized by a GitHub milestone, and initially, all user stories were added to it.
+
+The development work was organized into iterations, each spanning one week.
+For every iteration, a dedicated GitHub project board was created. User stories were moved from the product backlog to the relevant iteration as each work cycle commenced. In the iteration-specific project boards, user stories were categorized as 'must have,' 'could have,' or 'should have' goals. Some iterations also included 'tasks' that were not represented as user stories, such as setup/configuration and design/styling.
+
+To monitor progress, a project kanban board was employed. User stories were moved across columns labeled 'Todo,' 'In Progress,' and 'Done' based on their status.
+
+# Planning
+## Mockups
+
+# Features
+## Unregistered users
+A user who does not have an account or is not logged in is still able to read the tutorials and visit profiles. However, they are not able to create their own tutorials, comment on tutorials, like tutorials, or subscribe to other users.
+
+## Sign up page
+The sign up page enables a user to open a new account. As well as entering a user name and password for the account.
+
+## Sign in page
+The sign-in page allows a registered user to sign in to their account. A signed-in user is able to do things that a logged-out user cannot, such as creating their own tutorials, commenting on tutorials, liking tutorials, and subscribing to other users.
+
+## Navbar
+The navbar is a important component of the website, designed to provide easy navigation, user authentication controls, and direct access to the user's profile. It's designed to be intuitive and user-friendly, providing a seamless experience whether you're browsing tutorials or managing your profile.
+
+## Logo
+The logo serves as an anchor, always bringing you back home. When clicked, it navigates the user back to the start page, providing a fast way to get back to the homepage regardless of where you are on the site.
+## Home link
+Functionally similar to the logo, the Home link also navigates to the start page. However, it offers a bit of visual feedback - when you're on the home page, the Home link changes color. This color change also applies to other links when you're on their respective pages, providing a clear visual cue of your current location on the site.
+## Subscription Feed
+The Subscription Feed link takes you to a feed of newly posted tutorials from users you're subscribed to. This feature allows you to stay updated with your favorite content creators, ensuring you never miss out on their latest tutorials.
+## Liked Tutorials Feed Link
+The Liked Tutorials Feed link is your personal collection of tutorials that you've liked. It's a great way to bookmark tutorials for later viewing or to keep track of your favorite tutorials.
+## Sign In/Sign Out Buttons
+The navbar dynamically adjusts based on your authentication state. If you're logged out, you'll see Sign In and Sign Up buttons. If you're logged in, you'll instead see a Sign Out button. This provides a clear, intuitive interface for managing your user session.
+## Profile Link
+The Profile link is your gateway to your user profile. It includes your profile picture and takes you directly to your profile page where you can manage your account and view your uploaded tutorials.
 
 # Deployment
 ## Github
