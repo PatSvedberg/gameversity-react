@@ -51,7 +51,9 @@ The development work was organized into iterations, each spanning one week.
 For every iteration, a dedicated GitHub project board was created. User stories were moved from the product backlog to the relevant iteration as each work cycle commenced. In the iteration-specific project boards, user stories were categorized as 'must have,' 'could have,' or 'should have' goals. Some iterations also included 'tasks' that were not represented as user stories, such as setup/configuration and design/styling.
 
 To monitor progress, a project kanban board was employed. User stories were moved across columns labeled 'Todo,' 'In Progress,' and 'Done' based on their status.
-
+# Design
+## Colors
+## Fonts
 # Planning
 ## Mockups
 
@@ -139,6 +141,14 @@ The 'Edit Profile' option takes users to a separate page where they can update t
 When you visit another user's profile, you will see a 'Subscribe' button. Clicking this button subscribes you to the user, meaning their tutorials will now appear in your tutorial feed. The 'Subscribe' button then changes to an 'Unsubscribe' button.
 ### Unsubscribe
 If you're already subscribed to a user, the 'Subscribe' button will be replaced with an 'Unsubscribe' button. Clicking this button will unsubscribe you from the user, and their tutorials will no longer appear in your tutorial feed.
+
+# Testing
+## Manual testing
+## Automatic testing
+## Valicator test
+### ESLint JavaScript validator
+### W3C CSS validator
+### Lighthouse testing
 
 # Deployment
 ## Github
