@@ -34,14 +34,14 @@ const Profile = (props) => {
           !is_owner &&
           (subscribing_id ? (
             <Button
-              className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+              className={styles.UnsubButton}
               onClick={() => handleUnsubscribe(profile)}
             >
               Unsubscribe
             </Button>
           ) : (
             <Button
-              className={`${btnStyles.Button} ${btnStyles.Black}`}
+              className={styles.SubButton}
               onClick={() => handleSubscribe(profile)}
             >
               Subscribe

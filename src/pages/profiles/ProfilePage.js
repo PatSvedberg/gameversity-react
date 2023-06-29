@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 
 import styles from "../../styles/ProfilePage.module.css";
-import btnStyles from "../../styles/Button.module.css";
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -92,14 +91,14 @@ function ProfilePage() {
             !is_owner &&
             (profile?.subscribing_id ? (
               <Button
-                className={`${btnStyles.Button} ${btnStyles.BlackOutline}`}
+                className={styles.UnsubButton}
                 onClick={() => handleUnsubscribe(profile)}
               >
                 Unsubscribe
               </Button>
             ) : (
               <Button
-                className={`${btnStyles.Button} ${btnStyles.Black}`}
+                className={styles.SubButton}
                 onClick={() => handleSubscribe(profile)}
               >
                 Subscribe
