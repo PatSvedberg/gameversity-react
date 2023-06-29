@@ -81,6 +81,29 @@ The navbar dynamically adjusts based on your authentication state. If you're log
 ## Profile Link
 The Profile link is your gateway to your user profile. It includes your profile picture and takes you directly to your profile page where you can manage your account and view your uploaded tutorials.
 
+## Create Tutorial
+The Create Tutorial Page is a dedicated space for users to share their knowledge and expertise by creating new tutorials. This page is accessible only to logged-in users, ensuring that the content created is from authenticated sources. The button to access this page is conveniently located in the navbar and is only visible to logged-in users.
+### Page Layout
+Upon navigating to the Create Tutorial Page, users are presented with an easy-to-use form to create their tutorial. The form is designed to collect all the necessary details to create a comprehensive tutorial.
+### Title
+The first field is for the tutorial title. This is where users can provide a concise and informative title for their tutorial.
+### Description
+Next, users can provide a description of their tutorial. This field should contain a brief summary of what the tutorial is about and what it aims to teach.
+### Image
+Users can also upload an image that best represents their tutorial. This could be a screenshot from the tutorial itself or any image that gives a snapshot of what the tutorial is about.
+### Coding Language, Game Engine, Game Engine Version
+These fields allow users to specify the technical specifications of their tutorial. Users can select the coding language, game engine, and the version of the game engine used in their tutorial. This information helps other users understand the technical requirements of the tutorial.
+### Theme
+The tutorial theme field allows users to categorize their tutorial under a specific theme or topic. This helps in better indexing of the tutorial and makes it easier for other users to find tutorials of a specific theme.
+### Instructions
+Finally, users can provide the step-by-step instructions of their tutorial in the Tutorial Instructions field. This is the main content of the tutorial where users detail the procedure to achieve what the tutorial is teaching.
+
+## Search bar
+Finally, users can provide the step-by-step instructions of their tutorial in the Tutorial Instructions field. This is the main content of the tutorial where users detail the procedure to achieve what the tutorial is teaching.
+<br />
+<br />
+The search bar operates by matching the entered keyword to various fields in the tutorial data. When a user enters a keyword, the search function scans through all tutorials and returns those that have the keyword in their title, engine, coding language, theme, or the username of the tutorial creator. This functionality ensures a comprehensive search mechanism that can help users find exactly what they are looking for.
+
 # Deployment
 ## Github
 ### Create Repository
