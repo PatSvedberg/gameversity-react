@@ -1,3 +1,8 @@
+.FullProfile {
+  background-color: black;
+  color: white;
+}
+
 .ProfileImage {
     object-fit: cover;
     height: 120px;

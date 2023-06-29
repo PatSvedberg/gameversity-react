@@ -10,10 +10,11 @@
 }
 
 .Content {
-  background-color: #ffffff;
+  background-color: black;
   padding: 10px;
   border-radius: 2px;
-  border: 1px solid #dadadf;
+  border: 1px solid orange;
+  color: white;
 }
 
 .FillerImage {

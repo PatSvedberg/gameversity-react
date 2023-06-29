@@ -104,118 +104,128 @@ const Tutorial = (props) => {
   };
 
   return (
-    <div className={styles.Full}>
-      <header className={styles.TopDiv}>
-        <div className={styles.Avatar}>
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} />
-            {owner}
-          </Link>
-        </div>
-        <h2>{title}</h2>
-        <div className={styles.Dropdown}>
-          {is_owner && tutorialPage && (
-            <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
-          )}
-        </div>
-        <h5 className={styles.DescText}>{description}</h5>
-      </header>
-      <Card className={styles.CustomCard}>
-        <small className="DateText">
-          Created at: {new Date(created_at).toLocaleDateString()}
-        </small>
-      </Card>
-      <Card className={styles.CustomCard}>
-        <small className="DateText">
-          Last updated: {new Date(updated_at).toLocaleDateString()}
-        </small>
-      </Card>
-      <section className={styles.TutorialContainer}>
-        <Card className={styles.CustomCard}>
-          <Card.Body>
-            <div className={styles.TutorialRight}>
-              <div className={styles.ImageContainer}>
-                <Link to={`/profiles/${profile_id}`}>
-                  <img src={image} className={styles.Image} alt="Tutorial" />
-                </Link>
-              </div>
-              <div className={styles.LikesCommentInfo}>
-                <div className={styles.LikesCommentDiv}>
-                  {is_owner ? (
-                    <OverlayTrigger
-                      placement="top"
-                      overlay={
-                        <Tooltip>You can&apos;t like your own post!</Tooltip>
-                      }
-                    >
-                      <i className="far fa-heart" aria-label="Like" />
-                    </OverlayTrigger>
-                  ) : like_id ? (
-                    <span onClick={handleUnlike}>
-                      <i
-                        className={`fas fa-heart ${styles.Heart}`}
-                        aria-label="Like"
-                      />
-                    </span>
-                  ) : currentUser ? (
-                    <span onClick={handleLike}>
-                      <i
-                        className={`far fa-heart ${styles.HeartOutline}`}
-                        aria-label="Like"
-                      />
-                    </span>
-                  ) : (
-                    <OverlayTrigger
-                      placement="top"
-                      overlay={<Tooltip>Log in to like posts!</Tooltip>}
-                    >
-                      <i className="far fa-heart" aria-label="Like" />
-                    </OverlayTrigger>
-                  )}
+    <Link to={`/tutorials/${id}`}>
+      <div className={styles.Full}>
+        <header className={styles.TopDiv}>
+          <div className={styles.Avatar}>
+            <Link to={`/profiles/${profile_id}`}>
+              <Avatar src={profile_image} height={55} />
+              {owner}
+            </Link>
+          </div>
 
-                  {likes_count}
-                </div>
-                <div className={styles.LikesCommentDiv}>
-                  <Link to={`/tutorials/${id}`}>
-                    <i className="far fa-comments" aria-label="Comments" />
-                  </Link>
-                  {comments_count}
-                </div>
-              </div>
-              <Card className={styles.CustomCard}>
-                <Card.Body>
-                  <Media className={styles.TutorialInfo}>
-                    <div className={styles.ImageContainer}></div>
-                    <div>
-                      <div className={styles.InfoContainer}>
-                        <p>
-                          <strong>Engine: </strong>
-                          {engine}
-                        </p>
-                        <p>
-                          <strong>Engine version: </strong>
-                          {engine_version}
-                        </p>
-                      </div>
-                      <div className={styles.InfoContainer}>
-                        <p>
-                          <strong>Language: </strong>
-                          {language}
-                        </p>
-                        <p>
-                          <strong>Theme: </strong>
-                          {theme}
-                        </p>
-                      </div>
-                    </div>
-                  </Media>
-                </Card.Body>
-              </Card>
-            </div>
-          </Card.Body>
+          <Link to={`/tutorials/${id}`}>
+            <h2>{title}</h2>
+          </Link>
+          <div className={styles.Dropdown}>
+            {is_owner && tutorialPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
+          </div>
+          <Link to={`/tutorials/${id}`}>
+            <h5 className={styles.DescText}>{description}</h5>
+          </Link>
+        </header>
+        <Card className={styles.CustomCard}>
+          <small className="DateText">
+            Created at: {new Date(created_at).toLocaleDateString()}
+          </small>
         </Card>
-      </section>
-    </div>
+        <Card className={styles.CustomCard}>
+          <small className="DateText">
+            Last updated: {new Date(updated_at).toLocaleDateString()}
+          </small>
+        </Card>
+        <section className={styles.TutorialContainer}>
+          <Card className={styles.CustomCard}>
+            <Card.Body>
+              <div className={styles.TutorialRight}>
+                <div className={styles.ImageContainer}>
+                  <Link to={`/tutorials/${id}`}>
+                    <img src={image} className={styles.Image} alt="Tutorial" />
+                  </Link>
+                </div>
+                <div className={styles.LikesCommentInfo}>
+                  <div className={styles.LikesCommentDiv}>
+                    {is_owner ? (
+                      <OverlayTrigger
+                        placement="top"
+                        overlay={
+                          <Tooltip>You can&apos;t like your own post!</Tooltip>
+                        }
+                      >
+                        <i className="far fa-heart" aria-label="Like" />
+                      </OverlayTrigger>
+                    ) : like_id ? (
+                      <span onClick={handleUnlike}>
+                        <i
+                          className={`fas fa-heart ${styles.Heart}`}
+                          aria-label="Like"
+                        />
+                      </span>
+                    ) : currentUser ? (
+                      <span onClick={handleLike}>
+                        <i
+                          className={`far fa-heart ${styles.HeartOutline}`}
+                          aria-label="Like"
+                        />
+                      </span>
+                    ) : (
+                      <OverlayTrigger
+                        placement="top"
+                        overlay={<Tooltip>Log in to like posts!</Tooltip>}
+                      >
+                        <i className="far fa-heart" aria-label="Like" />
+                      </OverlayTrigger>
+                    )}
+
+                    {likes_count}
+                  </div>
+                  <div className={styles.LikesCommentDiv}>
+                    <Link to={`/tutorials/${id}`}>
+                      <i className="far fa-comments" aria-label="Comments" />
+                    </Link>
+                    {comments_count}
+                  </div>
+                </div>
+                <Card className={styles.CustomCard}>
+                  <Card.Body>
+                    <Media className={styles.TutorialInfo}>
+                      <div className={styles.ImageContainer}></div>
+                      <div>
+                        <div className={styles.InfoContainer}>
+                          <p>
+                            <strong>Engine: </strong>
+                            {engine}
+                          </p>
+                          <p>
+                            <strong>Engine version: </strong>
+                            {engine_version}
+                          </p>
+                        </div>
+                        <div className={styles.InfoContainer}>
+                          <p>
+                            <strong>Language: </strong>
+                            {language}
+                          </p>
+                          <p>
+                            <strong>Theme: </strong>
+                            {theme}
+                          </p>
+                        </div>
+                      </div>
+                    </Media>
+                  </Card.Body>
+                </Card>
+              </div>
+            </Card.Body>
+          </Card>
+        </section>
+      </div>
+    </Link>
   );
 };
 

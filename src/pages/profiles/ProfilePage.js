@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 import Asset from "../../components/Asset";
 
 import styles from "../../styles/ProfilePage.module.css";
-import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
 import PopularProfiles from "./PopularProfiles";
@@ -61,7 +60,7 @@ function ProfilePage() {
   }, [id, setProfileData]);
 
   const mainProfile = (
-    <>
+    <Container>
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
@@ -109,7 +108,7 @@ function ProfilePage() {
         </Col>
         {profile?.content && <Col className="p-3">{profile.content}</Col>}
       </Row>
-    </>
+    </Container>
   );
 
   const mainProfileTutorials = (
@@ -145,7 +144,7 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
-        <Container className={appStyles.Content}>
+        <Container className={styles.FullProfile}>
           {hasLoaded ? (
             <>
               {mainProfile}
