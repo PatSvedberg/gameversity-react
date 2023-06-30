@@ -183,7 +183,7 @@ function TutorialEditForm() {
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Language</Form.Label>
+                <Form.Label>Coding Language</Form.Label>
                 <Form.Control
                   type="text"
                   name="language"
@@ -192,7 +192,7 @@ function TutorialEditForm() {
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Engine</Form.Label>
+                <Form.Label>Game Engine</Form.Label>
                 <Form.Control
                   type="text"
                   name="engine"
@@ -201,7 +201,7 @@ function TutorialEditForm() {
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Engine Version</Form.Label>
+                <Form.Label>Game Engine Version</Form.Label>
                 <Form.Control
                   type="text"
                   name="engine_version"

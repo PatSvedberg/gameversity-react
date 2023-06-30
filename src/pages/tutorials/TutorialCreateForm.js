@@ -9,12 +9,12 @@ import styles from "../../styles/TutorialCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function TutorialCreateForm() {
-  //useRedirect("loggedOut");
+  useRedirect("loggedOut");
   const [setErrors] = useState({});
 
   const [postData, setPostData] = useState({
@@ -159,7 +159,7 @@ function TutorialCreateForm() {
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Engine</Form.Label>
+                <Form.Label>Game Engine</Form.Label>
                 <Form.Control
                   type="text"
                   name="engine"
@@ -168,7 +168,7 @@ function TutorialCreateForm() {
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Engine Version</Form.Label>
+                <Form.Label>Game Engine Version</Form.Label>
                 <Form.Control
                   type="text"
                   name="engine_version"
