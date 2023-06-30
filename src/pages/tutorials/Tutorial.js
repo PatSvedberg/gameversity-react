@@ -94,7 +94,7 @@ const Tutorial = (props) => {
 
   const handleUnlike = async () => {
     try {
-      await axiosRes.delete(`/likes/${like_id}/`);
+      await axiosRes.delete(`/likes/${like_id}`);
       setTutorials((prevTutorials) => ({
         ...prevTutorials,
         results: prevTutorials.results.map((tutorial) => {

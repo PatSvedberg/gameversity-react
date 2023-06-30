@@ -59,6 +59,7 @@ function TutorialsPage({ message, filter = "" }) {
             type="text"
             className="mr-sm-2"
             placeholder="Search"
+            aria-label="Search"
           />
         </Form>
         {hasLoaded ? (

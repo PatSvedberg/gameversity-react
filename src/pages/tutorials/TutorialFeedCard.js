@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "../../styles/TutorialFeedCard.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-import { MoreDropdown } from "../../components/MoreDropdown";
-import { axiosReq } from "../../api/axiosDefaults";
 
 const Tutorial = (props) => {
   const {
@@ -26,42 +24,11 @@ const Tutorial = (props) => {
     like_id,
     comments_count,
     likes_count,
-    tutorialPage,
     setTutorials,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
-  const history = useHistory();
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const { data: comments } = await axiosReq.get(
-          `/comments/?tutorial=${id}`
-        );
-        setComments(comments);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    handleMount();
-  }, [id]);
-
-  const handleEdit = () => {
-    history.push(`/tutorials/${id}/edit`);
-  };
-
-  const handleDelete = async () => {
-    try {
-      await axiosRes.delete(`/tutorials/${id}/`);
-      history.goBack();
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const handleLike = async () => {
     try {
@@ -104,93 +71,79 @@ const Tutorial = (props) => {
   };
 
   return (
-    <Link to={`/tutorials/${id}`}>
-      <div className={styles.Full}>
-        <header className={styles.TopDiv}>
-          <div className={styles.Avatar}>
-            <Link to={`/profiles/${profile_id}`}>
-              <Avatar src={profile_image} height={55} />
-              {owner}
-            </Link>
-          </div>
+    <div className={styles.Full}>
+      <header className={styles.TopDiv}>
+        <div className={styles.Avatar}>
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profile_image} height={55} />
+            {owner}
+          </Link>
+        </div>
+        <h2>{title}</h2>
+        <h5 className={styles.DescText}>{description}</h5>
+      </header>
+      <Card className={styles.CustomCard}>
+        <small className="DateText">
+          Created at: {new Date(created_at).toLocaleDateString()}
+        </small>
+      </Card>
+      <Card className={styles.CustomCard}>
+        <small className="DateText">
+          Last updated: {new Date(updated_at).toLocaleDateString()}
+        </small>
+      </Card>
+      <section className={styles.TutorialContainer}>
+        <Card className={styles.CustomCard}>
+          <Card.Body>
+            <div className={styles.TutorialRight}>
+              <div className={styles.ImageContainer}>
+                <Link to={`/profiles/${profile_id}`}>
+                  <img src={image} className={styles.Image} alt="Tutorial" />
+                </Link>
+              </div>
+              <div className={styles.LikesCommentInfo}>
+                <div className={styles.LikesCommentDiv}>
+                  {is_owner ? (
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={
+                        <Tooltip>You can&apos;t like your own post!</Tooltip>
+                      }
+                    >
+                      <i className="far fa-heart" aria-label="Like" />
+                    </OverlayTrigger>
+                  ) : like_id ? (
+                    <span onClick={handleUnlike}>
+                      <i
+                        className={`fas fa-heart ${styles.Heart}`}
+                        aria-label="Like"
+                      />
+                    </span>
+                  ) : currentUser ? (
+                    <span onClick={handleLike}>
+                      <i
+                        className={`far fa-heart ${styles.HeartOutline}`}
+                        aria-label="Like"
+                      />
+                    </span>
+                  ) : (
+                    <OverlayTrigger
+                      placement="top"
+                      overlay={<Tooltip>Log in to like posts!</Tooltip>}
+                    >
+                      <i className="far fa-heart" aria-label="Like" />
+                    </OverlayTrigger>
+                  )}
 
-          <Link to={`/tutorials/${id}`}>
-            <h2>{title}</h2>
-          </Link>
-          <div className={styles.Dropdown}>
-            {is_owner && tutorialPage && (
-              <MoreDropdown
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-            )}
-          </div>
-          <Link to={`/tutorials/${id}`}>
-            <h5 className={styles.DescText}>{description}</h5>
-          </Link>
-        </header>
-        <Card className={styles.CustomCard}>
-          <small className="DateText">
-            Created at: {new Date(created_at).toLocaleDateString()}
-          </small>
-        </Card>
-        <Card className={styles.CustomCard}>
-          <small className="DateText">
-            Last updated: {new Date(updated_at).toLocaleDateString()}
-          </small>
-        </Card>
-        <section className={styles.TutorialContainer}>
-          <Card className={styles.CustomCard}>
-            <Card.Body>
-              <div className={styles.TutorialRight}>
-                <div className={styles.ImageContainer}>
+                  {likes_count}
+                </div>
+                <div className={styles.LikesCommentDiv}>
                   <Link to={`/tutorials/${id}`}>
-                    <img src={image} className={styles.Image} alt="Tutorial" />
+                    <i className="far fa-comments" aria-label="Comments" />
+                    <span className="visually-hidden">{comments_count}</span>
                   </Link>
                 </div>
-                <div className={styles.LikesCommentInfo}>
-                  <div className={styles.LikesCommentDiv}>
-                    {is_owner ? (
-                      <OverlayTrigger
-                        placement="top"
-                        overlay={
-                          <Tooltip>You can&apos;t like your own post!</Tooltip>
-                        }
-                      >
-                        <i className="far fa-heart" aria-label="Like" />
-                      </OverlayTrigger>
-                    ) : like_id ? (
-                      <span onClick={handleUnlike}>
-                        <i
-                          className={`fas fa-heart ${styles.Heart}`}
-                          aria-label="Like"
-                        />
-                      </span>
-                    ) : currentUser ? (
-                      <span onClick={handleLike}>
-                        <i
-                          className={`far fa-heart ${styles.HeartOutline}`}
-                          aria-label="Like"
-                        />
-                      </span>
-                    ) : (
-                      <OverlayTrigger
-                        placement="top"
-                        overlay={<Tooltip>Log in to like posts!</Tooltip>}
-                      >
-                        <i className="far fa-heart" aria-label="Like" />
-                      </OverlayTrigger>
-                    )}
 
-                    {likes_count}
-                  </div>
-                  <div className={styles.LikesCommentDiv}>
-                    <Link to={`/tutorials/${id}`}>
-                      <i className="far fa-comments" aria-label="Comments" />
-                    </Link>
-                    {comments_count}
-                  </div>
-                </div>
                 <Card className={styles.CustomCard}>
                   <Card.Body>
                     <Media className={styles.TutorialInfo}>
@@ -221,11 +174,11 @@ const Tutorial = (props) => {
                   </Card.Body>
                 </Card>
               </div>
-            </Card.Body>
-          </Card>
-        </section>
-      </div>
-    </Link>
+            </div>
+          </Card.Body>
+        </Card>
+      </section>
+    </div>
   );
 };
 
