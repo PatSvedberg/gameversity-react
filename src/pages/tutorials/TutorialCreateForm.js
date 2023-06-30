@@ -63,14 +63,28 @@ function TutorialCreateForm() {
     event.preventDefault();
     const formData = new FormData();
 
+    // Add other form data fields
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("image", imageInput.current.files[0] || "");
     formData.append("language", language);
     formData.append("engine", engine);
     formData.append("engine_version", engine_version);
     formData.append("theme", theme);
     formData.append("instructions", instructions);
+
+    // Check if image input has a selected file
+    if (imageInput.current.files.length) {
+      const file = imageInput.current.files[0];
+
+      // Perform client-side validation for image size
+      if (file.size > 2 * 1024 * 1024) {
+        // Display a warning to the user
+        alert("Image size is larger than 2MB. Please choose a smaller image.");
+        return;
+      }
+
+      formData.append("image", file);
+    }
 
     try {
       const { data: tutorialData } = await axiosReq.post(
@@ -79,7 +93,6 @@ function TutorialCreateForm() {
       );
 
       const tutorialId = tutorialData.id;
-
       history.push(`/tutorials/${tutorialId}`);
     } catch (err) {
       console.log("Error Response:", err.response.data);
