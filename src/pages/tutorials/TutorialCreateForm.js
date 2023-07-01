@@ -99,7 +99,7 @@ function TutorialCreateForm() {
       const tutorialId = tutorialData.id;
       history.push(`/tutorials/${tutorialId}`);
     } catch (err) {
-      console.log("Error Response:", err.response.data);
+      // console.log("Error Response:", err.response.data);
       if (err.response && err.response.status !== 401) {
         setErrors(err.response.data);
       }

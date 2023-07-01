@@ -22,7 +22,7 @@ function TutorialPage() {
         ]);
         setTutorials({ results: [tutorial] });
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

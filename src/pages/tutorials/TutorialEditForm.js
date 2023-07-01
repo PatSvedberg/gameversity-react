@@ -75,7 +75,7 @@ function TutorialEditForm() {
             })
           : history.push("/");
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -125,7 +125,7 @@ function TutorialEditForm() {
       // Redirect the user to the tutorial page
       history.push(`/tutorials/${id}`);
     } catch (err) {
-      console.log("Error Response:", err.response.data);
+      // console.log("Error Response:", err.response.data);
       if (err.response && err.response.status !== 401) {
         setErrors(err.response.data);
       }

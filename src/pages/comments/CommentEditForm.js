@@ -40,7 +40,7 @@ function CommentEditForm(props) {
       // The function to control the visibility of the edit form.
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
