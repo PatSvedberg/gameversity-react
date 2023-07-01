@@ -3,8 +3,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 
-// The forwardRef is important!!
-// Dropdown needs access to the DOM node in order to position the Menu
+// ThreeDots component for dropdown toggle
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
@@ -16,6 +15,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+// MoreDropdown component for deleting and editing a tutorial.
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
@@ -44,8 +44,10 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   );
 };
 
+// Setting display name for ThreeDots component
 ThreeDots.displayName = "ThreeDots";
 
+// ProfileEditDropdown component for profile edit options
 export const ProfileEditDropdown = ({ id }) => {
   const history = useHistory();
   return (
@@ -56,21 +58,21 @@ export const ProfileEditDropdown = ({ id }) => {
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
-          <i className="fas fa-edit" /> edit profile
+          <i className="fas fa-edit" /> Edit profile
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
         >
           <i className="far fa-id-card" />
-          change username
+          Change username
         </Dropdown.Item>
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"
         >
           <i className="fas fa-key" />
-          change password
+          Change password
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

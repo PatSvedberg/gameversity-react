@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+// Component for rendering a tutorial card for the feed
 const Tutorial = (props) => {
   const {
     title,
@@ -30,6 +31,11 @@ const Tutorial = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  /**
+   * Handles the like action for the tutorial.
+   * Sends a POST request to create a new like for the tutorial.
+   * Updates the tutorials state with the updated like count and like ID.
+   */
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { tutorial: id });
@@ -50,6 +56,11 @@ const Tutorial = (props) => {
     }
   };
 
+  /**
+   * Handles the unlike action for the tutorial.
+   * Sends a DELETE request to delete the like associated with the tutorial.
+   * Updates the tutorials state with the updated like count and null like ID.
+   */
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);

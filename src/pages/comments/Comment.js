@@ -8,6 +8,9 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
 
+/**
+ * Component for displaying a comment.
+ */
 const Comment = (props) => {
   const {
     profile_id,
@@ -28,6 +31,7 @@ const Comment = (props) => {
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
+      // The function to update the tutorials data.
       setTutorials((prevTutorial) => ({
         results: [
           {
@@ -37,6 +41,7 @@ const Comment = (props) => {
         ],
       }));
 
+      // The function to update the comments data.
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
@@ -46,6 +51,7 @@ const Comment = (props) => {
     }
   };
 
+  // The rendered component.
   return (
     <>
       <hr />

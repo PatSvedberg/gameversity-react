@@ -16,6 +16,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 
+// React component representing a tutorial
 const Tutorial = (props) => {
   const {
     title,
@@ -45,6 +46,7 @@ const Tutorial = (props) => {
   const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
+    // Fetch comments for the tutorial
     const handleMount = async () => {
       try {
         const { data: comments } = await axiosReq.get(
@@ -60,10 +62,12 @@ const Tutorial = (props) => {
   }, [id]);
 
   const handleEdit = () => {
+    // Handle edit button click
     history.push(`/tutorials/${id}/edit`);
   };
 
   const handleDelete = async () => {
+    // Handle delete button click
     try {
       await axiosRes.delete(`/tutorials/${id}`);
       history.goBack();
@@ -73,6 +77,7 @@ const Tutorial = (props) => {
   };
 
   const handleLike = async () => {
+    // Handle like button click
     try {
       const { data } = await axiosRes.post("/likes/", { tutorial: id });
       setTutorials((prevTutorials) => ({
@@ -93,6 +98,7 @@ const Tutorial = (props) => {
   };
 
   const handleUnlike = async () => {
+    // Handle unlike button click
     try {
       await axiosRes.delete(`/likes/${like_id}`);
       setTutorials((prevTutorials) => ({
@@ -116,6 +122,7 @@ const Tutorial = (props) => {
     <div className={styles.Full}>
       <header className={styles.TopDiv}>
         <div className={styles.Avatar}>
+          {/* Profile picture and link to the profile */}
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {owner}
@@ -123,6 +130,7 @@ const Tutorial = (props) => {
         </div>
         <h2>{title}</h2>
         <div className={styles.Dropdown}>
+          {/* Display dropdown menu for the owner of tutorial page */}
           {is_owner && tutorialPage && (
             <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />
           )}
@@ -150,6 +158,7 @@ const Tutorial = (props) => {
               </div>
               <div className={styles.LikesCommentInfo}>
                 <div className={styles.LikesCommentDiv}>
+                  {/* Show and handle like button */}
                   {is_owner ? (
                     <OverlayTrigger
                       placement="top"

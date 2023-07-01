@@ -17,6 +17,7 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+// Component for rendering a form to change the user's username.
 const UsernameForm = () => {
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
@@ -29,18 +30,22 @@ const UsernameForm = () => {
 
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
+      // Set the initial username value to the current user's username
       setUsername(currentUser.username);
     } else {
+      // Redirect user if they are not the owner of this profile
       history.push("/");
     }
   }, [currentUser, history, id]);
 
+  // Event handler for form submission.
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.put("/dj-rest-auth/user/", {
         username,
       });
+      // Update the current user's username in the context
       setCurrentUser((prevUser) => ({
         ...prevUser,
         username,

@@ -3,8 +3,10 @@ import NoResults from "../assets/no-results.png";
 import styles from "../styles/NotFound.module.css";
 import Asset from "./Asset";
 
+// Component for rendering a not found message
 const NotFound = () => {
   return (
+    // Using the Asset component to render an image and a message
     <div className={styles.NotFound}>
       <Asset
         src={NoResults}

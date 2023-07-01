@@ -5,6 +5,9 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 
+/**
+ * Component for editing a comment.
+ */
 function CommentEditForm(props) {
   const { id, comment, setShowEditForm, setComments } = props;
 
@@ -14,12 +17,14 @@ function CommentEditForm(props) {
     setFormComment(event.target.value);
   };
 
+  // Handle submitting edited comment
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.put(`/comments/${id}/`, {
         comment: formComment.trim(),
       });
+      // The function to update the comments data.
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.map((comment) => {
@@ -32,6 +37,7 @@ function CommentEditForm(props) {
             : comment;
         }),
       }));
+      // The function to control the visibility of the edit form.
       setShowEditForm(false);
     } catch (err) {
       console.log(err);

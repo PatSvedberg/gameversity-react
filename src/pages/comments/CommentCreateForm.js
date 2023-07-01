@@ -8,6 +8,9 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
+/**
+ * Component for creating a comment.
+ */
 function CommentCreateForm(props) {
   const { tutorial, setTutorial, setComments, profileImage, profile_id } =
     props;
@@ -24,10 +27,12 @@ function CommentCreateForm(props) {
         comment,
         tutorial,
       });
+      // The function to update the comments data.
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
+      // The function to update the tutorial data.
       setTutorial((prevTutorial) => ({
         results: [
           {
@@ -42,6 +47,7 @@ function CommentCreateForm(props) {
     }
   };
 
+  // The rendered component.
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>

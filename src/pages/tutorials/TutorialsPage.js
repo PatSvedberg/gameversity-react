@@ -16,6 +16,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 
+// Component for rendering the tutorials page.
 function TutorialsPage({ message, filter = "" }) {
   const [tutorials, setTutorials] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -24,6 +25,9 @@ function TutorialsPage({ message, filter = "" }) {
   const currentUser = useCurrentUser();
 
   useEffect(() => {
+    /**
+     * Fetches the tutorials from the API based on the current filter and query when using the search bar.
+     */
     const fetchTutorial = async () => {
       try {
         const { data } = await axiosReq.get(

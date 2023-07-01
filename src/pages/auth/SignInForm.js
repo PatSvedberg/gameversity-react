@@ -18,6 +18,7 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { useRedirect } from "../../hooks/useRedirect";
 import { setTokenTimestamp } from "../../utils/utils";
 
+// Component for the sign-in form.
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
   useRedirect("loggedIn");
@@ -31,13 +32,19 @@ function SignInForm() {
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
+
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
+      // Send a POST request to the login endpoint with the sign-in data
       const { data } = await axios.post("/dj-rest-auth/login/", signInData);
+      // Set the current user in the context
       setCurrentUser(data.user);
+      // Set token timestamp
       setTokenTimestamp(data);
+      // Redirect the user to the previous page
       history.goBack();
     } catch (err) {
       setErrors(err.response?.data);

@@ -14,12 +14,15 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 
+// NavBar component that renders the navigation bar
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  // Using custom hook for click outside toggle
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  // Function to handle sign out
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -30,6 +33,7 @@ const NavBar = () => {
     }
   };
 
+  // Icons for add post and logged in users
   const addPostIcon = (
     <NavLink
       className={styles.NavLink}
@@ -66,6 +70,7 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+  // Icons for logged out users
   const loggedOutIcons = (
     <>
       <NavLink
@@ -85,6 +90,7 @@ const NavBar = () => {
     </>
   );
 
+  // Rendering the NavBar component
   return (
     <Navbar
       expanded={expanded}

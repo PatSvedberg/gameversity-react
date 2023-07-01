@@ -26,6 +26,7 @@ function TutorialEditForm() {
     instructions: "",
   });
 
+  // Destructure postData into individual variables for easier access
   const {
     title,
     description,
@@ -41,6 +42,7 @@ function TutorialEditForm() {
   const history = useHistory();
   const { id } = useParams();
 
+  // Fetch the tutorial data when the component mounts
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -57,6 +59,8 @@ function TutorialEditForm() {
           is_owner,
         } = data;
 
+        // If the user is the owner of the tutorial, update the form data
+        // Otherwise, redirect the user to the start page
         is_owner
           ? setPostData({
               title,
@@ -78,6 +82,7 @@ function TutorialEditForm() {
     handleMount();
   }, [history, id]);
 
+  // Event handler for input field changes
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -85,6 +90,7 @@ function TutorialEditForm() {
     });
   };
 
+  // Event handler for image upload
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -95,10 +101,12 @@ function TutorialEditForm() {
     }
   };
 
+  // Event handler for form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
+    // Append form data to the formData object
     formData.append("title", title);
     formData.append("description", description);
     if (imageInput.current.files[0]) {
@@ -111,8 +119,10 @@ function TutorialEditForm() {
     formData.append("instructions", instructions);
 
     try {
+      // Send a PUT request to update the tutorial with the new data
       await axiosReq.put(`/tutorials/${id}`, formData);
 
+      // Redirect the user to the tutorial page
       history.push(`/tutorials/${id}`);
     } catch (err) {
       console.log("Error Response:", err.response.data);
@@ -160,7 +170,7 @@ function TutorialEditForm() {
                         className={styles.FormButton}
                         htmlFor="image-upload"
                       >
-                        Change the image
+                        Change <br /> the image
                       </Form.Label>
                     </div>
                   </>

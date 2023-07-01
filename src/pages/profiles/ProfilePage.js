@@ -23,6 +23,7 @@ import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
+// Component for rendering a user's profile page.
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profileTutorials, setProfileTutorials] = useState({ results: [] });

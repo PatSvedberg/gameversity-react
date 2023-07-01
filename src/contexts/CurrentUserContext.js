@@ -3,9 +3,11 @@ import axios from "axios";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useHistory } from "react-router";
 
+// Create the CurrentUserContext and SetCurrentUserContext contexts
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
+// Custom hooks to access the current user and set current user contexts
 export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
@@ -13,6 +15,7 @@ export const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
 
+  // Function to fetch the current user on mount
   const handleMount = async () => {
     try {
       const { data } = await axiosRes.get("dj-rest-auth/user/");
@@ -25,13 +28,15 @@ export const CurrentUserProvider = ({ children }) => {
   useEffect(() => {
     handleMount();
   }, []);
-
+  // Configure interceptors for axios requests and responses
   useMemo(() => {
     axiosReq.interceptors.request.use(
       async (config) => {
         try {
+          // Send a request to refresh the token
           await axios.post("/dj-rest-auth/token/refresh/");
         } catch (err) {
+          // If token refresh fails, set current user to null and redirect to sign in page
           setCurrentUser((prevCurrentUser) => {
             if (prevCurrentUser) {
               history.push("/signin");
@@ -52,8 +57,10 @@ export const CurrentUserProvider = ({ children }) => {
       async (err) => {
         if (err.response?.status === 401) {
           try {
+            // Send a request to refresh the token
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
+            // If token refresh fails, set current user to null and redirect to sign in page
             setCurrentUser((prevCurrentUser) => {
               if (prevCurrentUser) {
                 history.push("/signin");
@@ -68,6 +75,7 @@ export const CurrentUserProvider = ({ children }) => {
     );
   }, [history]);
 
+  // Provide the current user and set current user contexts to child components
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <SetCurrentUserContext.Provider value={setCurrentUser}>

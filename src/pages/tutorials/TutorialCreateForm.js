@@ -13,6 +13,7 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
+// Component for creating a tutorial form.
 function TutorialCreateForm() {
   useRedirect("loggedOut");
   const [setErrors] = useState({});
@@ -42,6 +43,7 @@ function TutorialCreateForm() {
   const imageInput = useRef(null);
   const history = useHistory();
 
+  //Event handler for input field changes.
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -49,6 +51,7 @@ function TutorialCreateForm() {
     });
   };
 
+  //Event handler for image upload input field.
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -59,6 +62,7 @@ function TutorialCreateForm() {
     }
   };
 
+  // Event handler for form submission.
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

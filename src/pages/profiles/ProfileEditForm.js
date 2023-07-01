@@ -18,6 +18,7 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+// Component for rendering a form to edit a user's profile.
 const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
@@ -36,6 +37,7 @@ const ProfileEditForm = () => {
 
   useEffect(() => {
     const handleMount = async () => {
+      // Fetch the profile data if the current user is the owner of the profile
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
@@ -60,6 +62,7 @@ const ProfileEditForm = () => {
     });
   };
 
+  // Handle submit for when editing the profile.
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();

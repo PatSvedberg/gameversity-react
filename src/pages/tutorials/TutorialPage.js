@@ -5,11 +5,16 @@ import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Tutorial from "./Tutorial";
 
+// Component for rendering a tutorial page.
 function TutorialPage() {
   const { id } = useParams();
   const [tutorial, setTutorials] = useState({ results: [] });
 
   useEffect(() => {
+    /**
+     * Handles the mounting of the component.
+     * Fetches the tutorial data from the API and updates the state.
+     */
     const handleMount = async () => {
       try {
         const [{ data: tutorial }] = await Promise.all([

@@ -17,8 +17,14 @@ import {
 import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
 
+/**
+ * Component for the sign-up form.
+ */
 const SignUpForm = () => {
+  // Redirect user if already logged in
   useRedirect("loggedIn");
+
+  // State for form data and errors
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -30,6 +36,7 @@ const SignUpForm = () => {
 
   const history = useHistory();
 
+  // Handle form input changes
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -37,9 +44,11 @@ const SignUpForm = () => {
     });
   };
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      // Send a POST request to the registration endpoint with the sign-up data
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
     } catch (err) {
