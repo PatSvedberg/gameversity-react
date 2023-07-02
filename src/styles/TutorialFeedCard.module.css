@@ -213,3 +213,10 @@
     align-items: center;
   }
 }
+
+.BottomCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}

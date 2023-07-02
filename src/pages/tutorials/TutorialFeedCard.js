@@ -5,6 +5,7 @@ import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import btnStyles from "../../styles/Button.module.css";
 
 // Component for rendering a tutorial card for the feed
 const Tutorial = (props) => {
@@ -188,6 +189,13 @@ const Tutorial = (props) => {
           </Card.Body>
         </Card>
       </section>
+      <div className={styles.BottomCenter}>
+        <Link to={`/tutorials/${id}`}>
+          <button className={`${btnStyles.Button} ${btnStyles.Orange}`} id={id}>
+            View Tutorial
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
