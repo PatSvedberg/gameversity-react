@@ -86,30 +86,52 @@ Used fonts:
 ## Unregistered users
 A user who does not have an account or is not logged in is still able to read the tutorials and visit profiles. However, they are not able to create their own tutorials, comment on tutorials, like tutorials, or subscribe to other users.
 
+<hr>
+
 ## Sign up page
 The sign up page enables a user to open a new account. As well as entering a user name and password for the account.
+![Sign up page](readme/signup-readme.PNG)
+
+<hr>
 
 ## Sign in page
 The sign-in page allows a registered user to sign in to their account. A signed-in user is able to do things that a logged-out user cannot, such as creating their own tutorials, commenting on tutorials, liking tutorials, and subscribing to other users.
+![Sign in page](readme/signin-readme.PNG)
+
+<hr>
+
+## Sign In/Sign Out Buttons
+The navbar dynamically adjusts based on your authentication state. If you're logged out, you'll see Sign In and Sign Up buttons. If you're logged in, you'll instead see a Sign Out button. This provides a clear, intuitive interface for managing your user session.
+
+<hr>
 
 ## Navbar
 The navbar is a important component of the website, designed to provide easy navigation, user authentication controls, and direct access to the user's profile. It's designed to be intuitive and user-friendly, providing a seamless experience whether you're browsing tutorials or managing your profile.
+* Logged out:
+![NavBar logout](readme/navbar1-readme.PNG)
+* Logged in
+![NavBar login](readme/navbar2-readme.PNG)
 
 ## Logo
 The logo serves as an anchor, always bringing you back home. When clicked, it navigates the user back to the start page, providing a fast way to get back to the homepage regardless of where you are on the site.
 ## Home link
 Functionally similar to the logo, the Home link also navigates to the start page. However, it offers a bit of visual feedback - when you're on the home page, the Home link changes color. This color change also applies to other links when you're on their respective pages, providing a clear visual cue of your current location on the site.
+![Home page](readme/homepage-readme.PNG)
+
 ## Subscription Feed
 The Subscription Feed link takes you to a feed of newly posted tutorials from users you're subscribed to. This feature allows you to stay updated with your favorite content creators, ensuring you never miss out on their latest tutorials.
+
 ## Liked Tutorials Feed Link
 The Liked Tutorials Feed link is your personal collection of tutorials that you've liked. It's a great way to bookmark tutorials for later viewing or to keep track of your favorite tutorials.
-## Sign In/Sign Out Buttons
-The navbar dynamically adjusts based on your authentication state. If you're logged out, you'll see Sign In and Sign Up buttons. If you're logged in, you'll instead see a Sign Out button. This provides a clear, intuitive interface for managing your user session.
 ## Profile Link
 The Profile link is your gateway to your user profile. It includes your profile picture and takes you directly to your profile page where you can manage your account and view your uploaded tutorials.
 
+<hr>
+
 ## Create Tutorial
 The Create Tutorial Page is a dedicated space for users to share their knowledge and expertise by creating new tutorials. This page is accessible only to logged-in users, ensuring that the content created is from authenticated sources. The button to access this page is conveniently located in the navbar and is only visible to logged-in users.
+![Create tutorial page](readme/createtutorial-readme.PNG)
+
 ### Page Layout
 Upon navigating to the Create Tutorial Page, users are presented with an easy-to-use form to create their tutorial. The form is designed to collect all the necessary details to create a comprehensive tutorial.
 ### Title
@@ -125,20 +147,34 @@ The tutorial theme field allows users to categorize their tutorial under a speci
 ### Instructions
 Finally, users can provide the step-by-step instructions of their tutorial in the Tutorial Instructions field. This is the main content of the tutorial where users detail the procedure to achieve what the tutorial is teaching.
 
+<hr>
+
 ## Search bar
 Finally, users can provide the step-by-step instructions of their tutorial in the Tutorial Instructions field. This is the main content of the tutorial where users detail the procedure to achieve what the tutorial is teaching.
+
+![Search bar](readme/search-readme.PNG)
+
 <br />
 <br />
 The search bar operates by matching the entered keyword to various fields in the tutorial data. When a user enters a keyword, the search function scans through all tutorials and returns those that have the keyword in their title, engine, coding language, theme, or the username of the tutorial creator. This functionality ensures a comprehensive search mechanism that can help users find exactly what they are looking for.
 
+<hr>
+
 ## Edit Tutorial Page
 The Edit Tutorial Page allows users to modify the details of an existing tutorial. This page is accessible only to the creator of the tutorial from inside the tutorial view by clicking the three dots in the top-right corner of it, ensuring that only the owner has the rights to make changes.
+
+![Edit tutorial page](readme/edit-readme.PNG)
+
 <br />
 <br />
 When users access the Edit Tutorial Page, they are presented with a form identical to the Create Tutorial Form. However, this form is pre-populated with the existing details of the tutorial. The pre-populated fields include the tutorial title, description, image, coding language, game engine, game engine version, theme, and tutorial instructions. Users can then make changes or updates to any of these fields as needed before saving the modified tutorial.
 
+<hr>
+
 ## Profile Page
 The profile page is a personalized space for users to showcase their identity and tutorials. It is designed to provide a snapshot of a user's activities and contributions to the platform.
+
+![Profile page](readme/profilepage-readme.PNG)
 <br />
 <br />
 At the top of the profile page, users can see their profile picture and username. The profile picture helps to personalize the page, while the username provides a unique identifier for the user within the platform.
@@ -155,17 +191,38 @@ The bottom section of the profile page presents a feed of the user's created tut
 <br />
 The dropdown menu, accessible via a three-dot icon at the top right of the profile page, provides a quick and easy way for users to access key account-related actions. These actions include changing their username, password, and editing their profile with a new bio or profile picture.
 
+<hr>
+
 ### Change Username
 By clicking on this option, users are presented with a form field where they can input a new username. After confirming their choice, the username on the account is updated.
+
+![Edit username page](readme/editusername-readme.PNG)
+
+<hr>
+
 ### Change Password
 This option allows users to change their password. It will present users with a form where they can input their new password, and then enter a new password again for verification.
+
+![Home page](readme/subs-readme.PNG)
+
+<hr>
+
 ### Edit Profile
 The 'Edit Profile' option takes users to a separate page where they can update their bio and profile picture. This page contains a textfield for the bio and an uploader for the profile picture.
 
+![Edit profile page](readme/editprofile-readme.PNG)
+
+<hr>
+
 ### Subscribe
 When you visit another user's profile, you will see a 'Subscribe' button. Clicking this button subscribes you to the user, meaning their tutorials will now appear in your tutorial feed. The 'Subscribe' button then changes to an 'Unsubscribe' button.
+
+![New password page](readme/newpassword-readme.PNG)
+
 ### Unsubscribe
 If you're already subscribed to a user, the 'Subscribe' button will be replaced with an 'Unsubscribe' button. Clicking this button will unsubscribe you from the user, and their tutorials will no longer appear in your tutorial feed.
+
+<hr>
 
 # Re-used components
 A number of reusable React components were created with the intention of reducing code duplication.
@@ -285,15 +342,15 @@ Throughout the entire project, we have consistently utilized the ESLint JavaScri
 
 ### W3C HTML validator
 
-![HTML Validator screenshot](../gameversity-react/readme/htmlw3-readme.PNG)
+![HTML Validator screenshot](readme/htmlw3-readme.PNG)
 
 ### W3C CSS validator
 
-![CSS Validator screenshot](../gameversity-react/readme/cssw3-readme.PNG)
+![CSS Validator screenshot](readme/cssw3-readme.PNG)
 
 ### Lighthouse testing
 
-![Lighthouse tester screenshot](../gameversity-react/readme/lighthouse-readme.PNG)
+![Lighthouse tester screenshot](readme/lighthouse-readme.PNG)
 
 # Console.logs
 I have some commented out console.logs that is left in place for future testing
@@ -390,5 +447,29 @@ Answer the questions in the terminal:
 * When connected, scroll down to Manual deploy and click "Deploy"
 * Wait for it to build. When it's done you can open the app
 
+### Connect to backend
+* In your API Heroku app
+* Go to settings and click config vars
+* Add a key named CLIENT_ORIGIN
+* Give it the value of the url of your deployed react application
+* Then add a key named CLIENT_ORIGIN_DEV
+* The key is the Gitpod preview link (*remove trailing slash*)
+* Back in you react app install axios with `npm install axios`
+* In you `src` folder, createa api folder with a file called `axiosDefaults.js` inside it 
+* Inside it add:
+```
+import axios from "axios";
+
+axios.defaults.baseURL = "INSERT the unique URL from you deployed API project on Heroku";
+
+axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
+
+axios.defaults.withCredentials = true;
+
+export const axiosReq = axios.create();
+
+export const axiosRes = axios.create();
+
+```
 
 <hr />
