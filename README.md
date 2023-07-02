@@ -400,6 +400,8 @@ I have some commented out console.logs that is left in place for future testing
 
 * From the URL, a user can enter an edit form for a tutorial that doesn't exist. However, the form field will not be filled with any pre-existing information, and it is important to note that they will not have the ability to edit tutorials created by someone else.
 
+* The comment give a 400 (Bad Request) when visiting a tutorial. I think the comments loads before the tutorial does. But the comments still works as it should.
+
 # Deployment
 ## Github
 ### Create Repository
