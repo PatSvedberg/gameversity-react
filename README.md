@@ -80,7 +80,37 @@ Used fonts:
 [Roboto](https://fonts.google.com/specimen/Roboto)
 
 # Planning
-## Mockups
+## Wireframe
+
+Wireframes was created at the start of the project. It changed a little bit during the project but the overall design is still there.
+
+* Overview
+
+![Wireframes - Overview](readme/wireframe-readme.PNG)
+
+* Home
+
+![Wireframes - Home](readme/wireframe-feed-readme.PNG)
+
+* Tutorial
+
+![Wireframes - Tutorial](readme/wireframe-tutorial-readme.PNG)
+
+* Create Tutorial
+
+![Wireframes - Create tutorial](readme/wireframe-readme.PNG)
+
+* Profile
+
+![Wireframes - Profile](readme/wireframe-profile-readme.PNG)
+
+* Sign up
+
+![Wireframes - Sign up](readme/wireframe-signup-readme.PNG)
+¨
+* Sign in
+
+![Wireframes - Sign in](readme/wireframe-tutorial-readme.PNG)
 
 # Features
 ## Unregistered users
@@ -340,17 +370,27 @@ Throughout the entire project, we have consistently utilized the ESLint JavaScri
 * Elimination of an unused variable that was identified.
 * Addition of the necessary import statements for React that were initially missing. 
 
+![ESLint screenshot](readme/eslint-readme.PNG)
+
+<hr>
+
 ### W3C HTML validator
 
 ![HTML Validator screenshot](readme/htmlw3-readme.PNG)
+
+<hr>
 
 ### W3C CSS validator
 
 ![CSS Validator screenshot](readme/cssw3-readme.PNG)
 
+<hr>
+
 ### Lighthouse testing
 
 ![Lighthouse tester screenshot](readme/lighthouse-readme.PNG)
+
+<hr>
 
 # Console.logs
 I have some commented out console.logs that is left in place for future testing
