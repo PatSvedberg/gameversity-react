@@ -237,8 +237,15 @@ Throughout the entire project, we have consistently utilized the ESLint JavaScri
 * Rectification of unescaped apostrophes in HTML text within specific components.
 * Elimination of an unused variable that was identified.
 * Addition of the necessary import statements for React that were initially missing. 
+
+### W3C HTML validator
+![HTML Validator screenshot](../gameversity-react/readme/htmlw3-readme.PNG)
+
 ### W3C CSS validator
+![CSS Validator screenshot](../gameversity-react/readme/cssw3-readme.PNG)
+
 ### Lighthouse testing
+![Lighthouse tester screenshot](../gameversity-react/readme/lighthouse-readme.PNG)
 
 # Unresolved bugs
 
