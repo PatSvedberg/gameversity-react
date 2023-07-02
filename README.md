@@ -207,22 +207,18 @@ The NotFound component renders a message indicating that the page the user is lo
 Gameversity provides full Create, Read, Update, and Delete functionality through a user interface developed using React along with the Django Rest Framework API.
 
 * **Create**
-<br />
 
 Users have the ability to register new accounts. Following registration, they can create their own tutorials and post comments on their own or others' tutorials.
 * **Read**
-<br />
 
 Both authenticated and unauthenticated users can view and read tutorials as well as user profiles.
 
 * **Update**
-<br />
 
 Users, while logging in, can modify tutorials they've created, edit their comments, and update their bio, avatar, username, and password.
 
 * **Delete**
 
-<br />
 Authenticated users have the option to delete their own tutorials and comments.
 
 # Future Features
@@ -232,10 +228,21 @@ Authenticated users have the option to delete their own tutorials and comments.
 # Testing
 ## Manual testing
 ## Automatic testing
-## Valicator test
+## Validator testing
 ### ESLint JavaScript validator
+Throughout the entire project, we have consistently utilized the ESLint JavaScript validator to validate all JavaScript files. During this validation process, we discovered and resolved the following issues:
+
+* Removal of unnecessary semicolons that were present at the end of certain statements.
+* Removal of unnecessary whitespaces and correction of indentations
+* Rectification of unescaped apostrophes in HTML text within specific components.
+* Elimination of an unused variable that was identified.
+* Addition of the necessary import statements for React that were initially missing. 
 ### W3C CSS validator
 ### Lighthouse testing
+
+# Unresolved bugs
+
+* From the URL, a user can enter an edit form for a tutorial that doesn't exist. However, the form field will not be filled with any pre-existing information, and it is important to note that they will not have the ability to edit tutorials created by someone else.
 
 # Deployment
 ## Github
