@@ -8,7 +8,7 @@ The primary goal of this project is to create a website where game developers ca
 
 # User Stories
 ## Navigation & Authentication
-* **Navigation** - As a User I can I can view a navbar from every page so that recived I can navigate easily between pages
+* **Navigation** - As a User I can I can view a navbar from every page so that received I can navigate easily between pages
 * **Navigation - Conditional Rendering** - As a User I can view the appropriate buttons for sign-in and sign-out so that convenient to log in and out whenever necessary or desired.
 * **User - Sign Up** - As a User I can I can create my own account so that create tutorials, like, dislike and comment on tutorials and subscribe to other users
 * **User - Sign In** - As a User I can sign in to the app so that create tutorials, like, dislike and comment on tutorials and subscribe to other users
@@ -26,15 +26,15 @@ The primary goal of this project is to create a website where game developers ca
 * **Like a tutorial** - As a user I can like a tutorial so that others can see if the tutorial is good or not
 * **Dislike a tutorial** - As a user I can dislike a tutorial so that others can see if the tutorial is good or not
 * **Post Comment** - As a logged in user I can create a comment in a tutorial so that to share my thoughts or ask for help if I'm stuck during my work
-* **Comment on a comment** - As a logged in user I can comment of someone elses comment in a tutorial so that share my thoughts on it or help them out if needed
+* **Comment on a comment** - As a logged in user I can comment of someone else's comment in a tutorial so that share my thoughts on it or help them out if needed
 * **Delete comment** - As a owner of a comment I can delete my comment so that I have control over my own comments
 
 ## The Tutorial Feed
-* **See latest tutorials** - As a user I can view the lastest tutorials that has been uploaded so that see if there is something new and interesting I want to try to do
+* **See latest tutorials** - As a user I can view the latest tutorials that has been uploaded so that see if there is something new and interesting I want to try to do
 * **Search tutorial** - As a user I can search for tutorials using keywords so that I can try to find the help I need in my development
 * **View subscription feed** - As a logged in user I can choose to only view the post of those I'm subscribed to so that I easily can find content of my favorite creators
 * **Tutorial page** - As a user I can view the tutorial page so that I can read the content and comments in the tutorial
-* **Infinite scroll** - As a user I can keep scrolling through the posted tutorials on the site, that are loaded for me automaticlly so that I don't have to click on "next page"
+* **Infinite scroll** - As a user I can keep scrolling through the posted tutorials on the site, that are loaded for me automatically so that I don't have to click on "next page"
 * **Subscribe/Unsubscribe** - As a logged in user I can subscribe to other users so that I add and remove their posts to my subscriber feed
 
 ## The Profile page Page
@@ -239,7 +239,7 @@ This option allows users to change their password. It will present users with a 
 <hr>
 
 ### Edit Profile
-The 'Edit Profile' option takes users to a separate page where they can update their bio and profile picture. This page contains a textfield for the bio and an uploader for the profile picture.
+The 'Edit Profile' option takes users to a separate page where they can update their bio and profile picture. This page contains a text field for the bio and an uploader for the profile picture.
 
 ![Edit profile page](readme/editprofile-readme.PNG)
 
@@ -296,7 +296,7 @@ The component is represented by an icon of three dots, a universal symbol for mo
 <hr>
 
 ### **NavBar.js**
-The NavBar component is offering a navigation bar to guide users through the application. It can be found from evey page of the site.
+The NavBar component is offering a navigation bar to guide users through the application. It can be found from every page of the site.
 
 <hr>
 
@@ -346,7 +346,7 @@ Authenticated users have the option to delete their own tutorials and comments.
 | User | Unlike tutorial | Only a logged in user can unlike a tutorial the've previously liked | Works as expected |
 | User | Can't like own tutorial | A tutorial owner are not able to like their own tutorials | Works as expected |
 | User | Like feed | Liked tutorial show up in the like feed | Works as expected |
-| User | View tutorial | Users are able to view the tutoral page | Works as expected |
+| User | View tutorial | Users are able to view the tutorial page | Works as expected |
 | User | Subscribe | A signed in user are able to subscribe to other users | Works as expected |
 | User | Unubscribe | A signed in user are able to unsubscribe to other users they are currently subscribed to | Works as expected |
 | User | Subscribe feed | Tutorials from users subscribed to shows up in the subscribe feed | Works as expected |
@@ -498,7 +498,7 @@ Answer the questions in the terminal:
 * Then add a key named CLIENT_ORIGIN_DEV
 * The key is the Gitpod preview link (*remove trailing slash*)
 * Back in you react app install axios with `npm install axios`
-* In you `src` folder, createa api folder with a file called `axiosDefaults.js` inside it 
+* In you `src` folder, create api folder with a file called `axiosDefaults.js` inside it 
 * Inside it add:
 ```
 import axios from "axios";
