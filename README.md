@@ -69,7 +69,7 @@ To monitor progress, a project kanban board was employed. User stories were move
 # Design
 ## Colors
 
-![Picture of color palette](gameversity-react/readme/colors-readme.png)
+![Picture of color palette](readme/colors-readme.png)
 
 ## Fonts
 
