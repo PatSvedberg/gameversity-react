@@ -143,7 +143,7 @@ function TutorialCreateForm() {
                     </figure>
                     <div>
                       <label
-                        className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                        className={`${btnStyles.Button} ${btnStyles.Orange}`}
                         htmlFor="image-upload"
                       >
                         Change the image
@@ -221,7 +221,7 @@ function TutorialCreateForm() {
                 />
               </Form.Group>
               <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                className={`${btnStyles.Button} ${btnStyles.Orange}`}
                 type="submit"
               >
                 Create Tutorial

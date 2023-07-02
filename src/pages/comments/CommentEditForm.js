@@ -58,14 +58,14 @@ function CommentEditForm(props) {
       </Form.Group>
       <div className="text-right">
         <button
-          className={`${btnStyles.Button} ${btnStyles.Blue}`}
+          className={`${btnStyles.Button} ${btnStyles.Orange}`}
           onClick={() => setShowEditForm(false)}
           type="button"
         >
           Cancel
         </button>
         <button
-          className={`${btnStyles.Button} ${btnStyles.Blue}`}
+          className={`${btnStyles.Button} ${btnStyles.Orange}`}
           disabled={!comment.trim()}
           type="submit"
         >

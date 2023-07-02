@@ -33,16 +33,16 @@
     padding: 10px 50px;
     width: 100%;
   }
-  
-  .Blue,
-  .BlueOutline:hover,
+
+  .Orange,
+  .OrangeOutline:hover,
   .Bright:hover {
     background-color: #ffa500;
     color: #000000;
   }
   
-  .BlueOutline,
-  .Blue:hover {
+  .OrangeOutline,
+  .Orange:hover {
     outline: none;
     box-shadow: 0 0 10px 2px orange;
     border-color: orange;
