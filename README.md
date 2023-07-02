@@ -227,6 +227,36 @@ Authenticated users have the option to delete their own tutorials and comments.
 
 # Testing
 ## Manual testing
+| Test | Action | Expected Result| 	Expected Result |
+| :---: | :---: | :---: | :---: |
+| User | Sign up | A user will be able to create an account | 	Works as expected |
+| User | Sign in | 	A user will be able to sign in with an existing user | 	Works as expected |
+| User | Sign out | A signed in user will be able to sign out | 	Works as expected |
+| User | Sign in redirect | A signed in user will be redirected if trying to access the sign in page | 	Works as expected |
+| User | Sign up redirect | A signed in user will be redirected if trying to access the sign up page | 	Works as expected |
+| User | Create tutorial | 	Only a logged in user can create a tutorial | 	Works as expected |
+| User | Create redirect | A signed out user will be redirected if trying to access the create tutorial form page | Works as expected |
+| User | Edit tutorial | 	Only the tutorial owner is able to edit a tutorial | Works as expected |
+| User | Delete tutorial | 	Only the tutorial owner is able to delete a tutorial | 	Works as expected |
+| User | Create comment | Only a logged in user can comment on a tutorial | Works as expected |
+| User | Edit comment | Only the comment owner can edit the comment | 	Works as expected |
+| User | Delete comment | Only the comment owner can delete the comment | Works as expected |
+| User | Search tutorial | Users can search tutorial using keywords | 	Works as expected |
+| User | Like tutorial | Only a logged in user can like a tutorial | 	Works as expected |
+| User | Unlike tutorial | Only a logged in user can unlike a tutorial the've previously liked | Works as expected |
+| User | Can't like own tutorial | A tutorial owner are not able to like their own tutorials | Works as expected |
+| User | Like feed | Liked tutorial show up in the like feed | Works as expected |
+| User | View tutorial | Users are able to view the tutoral page | Works as expected |
+| User | Subscribe | A signed in user are able to subscribe to other users | Works as expected |
+| User | Unubscribe | A signed in user are able to unsubscribe to other users they are currently subscribed to | Works as expected |
+| User | Subscribe feed | Tutorials from users subscribed to shows up in the subscribe feed | Works as expected |
+| User | View profiles | Users are able to visit user profiles | Works as expected |
+| User | Profile counters | Tutorial, subscribed and subscribing counters updates in the tutorial page | Works as expected |
+| User | Profile Update avatar | A profile owner is able to update profile avatar if logged in | Works as expected |
+| User | Profile Update bio | A profile owner is able to update profile bio if logged in | Works as expected |
+| User | Profile Update username | A profile owner is able to update profile username if logged in | Works as expected |
+| User | Profile Update password | A profile owner is able to update profile password if logged in | Works as expected |
+
 ## Automatic testing
 ## Validator testing
 ### ESLint JavaScript validator
@@ -239,12 +269,15 @@ Throughout the entire project, we have consistently utilized the ESLint JavaScri
 * Addition of the necessary import statements for React that were initially missing. 
 
 ### W3C HTML validator
+
 ![HTML Validator screenshot](../gameversity-react/readme/htmlw3-readme.PNG)
 
 ### W3C CSS validator
+
 ![CSS Validator screenshot](../gameversity-react/readme/cssw3-readme.PNG)
 
 ### Lighthouse testing
+
 ![Lighthouse tester screenshot](../gameversity-react/readme/lighthouse-readme.PNG)
 
 # Unresolved bugs

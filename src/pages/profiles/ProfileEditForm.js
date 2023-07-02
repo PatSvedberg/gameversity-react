@@ -89,9 +89,9 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <label htmlFor="bioField">Bio</label>
+        <label htmlFor="bioTextField">Bio</label>
         <Form.Control
-          id="bioField"
+          id="bioTextField"
           as="textarea"
           value={content}
           onChange={handleChange}
