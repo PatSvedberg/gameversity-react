@@ -109,7 +109,10 @@ const NavBar = () => {
           ref={ref}
           onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav"
-        />
+          style={{ borderColor: "#FFA500" }}
+        >
+          <i className="fa-sharp fa-solid fa-bars"></i>
+        </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
             <NavLink

@@ -203,8 +203,7 @@ const Tutorial = (props) => {
                 <Card className={styles.CustomCard}>
                   <Card.Body>
                     <Media className={styles.TutorialInfo}>
-                      <div className={styles.ImageContainer}></div>
-                      <div>
+                      <div className={styles.InfoDiv}>
                         <div className={styles.InfoContainer}>
                           <p>
                             <strong>Engine: </strong>

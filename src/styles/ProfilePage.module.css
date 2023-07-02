@@ -45,3 +45,9 @@
     border: 1px solid white;
     background-color: white;
 }
+
+.my-2 {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}

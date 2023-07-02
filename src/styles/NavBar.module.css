@@ -24,3 +24,7 @@ span {
 .Navbar.Toggle {
   color: white;
 }
+
+.navbar-toggler {
+  border-color: #FFA500;
+}

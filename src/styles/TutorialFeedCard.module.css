@@ -59,18 +59,13 @@
     align-items: center;
     background-color: black;
     color: white;
+    padding-top: 10px;
   }
   
   .Dropdown {
     position: absolute;
     right: 0;
     padding-right: 15px;
-  }
-
-  .Avatar {
-    position: absolute;
-    left: 0;
-    padding-left: 15px;
   }
 
   header h2 {
@@ -197,4 +192,24 @@
     height: 1px !important;
     width: 1px !important;
     overflow: hidden;
+}
+
+.InfoDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 520px) {
+  .InfoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .LikesCommentInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
