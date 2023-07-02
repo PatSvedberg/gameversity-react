@@ -208,16 +208,26 @@ Gameversity provides full Create, Read, Update, and Delete functionality through
 
 * **Create**
 <br />
+
 Users have the ability to register new accounts. Following registration, they can create their own tutorials and post comments on their own or others' tutorials.
 * **Read**
 <br />
+
 Both authenticated and unauthenticated users can view and read tutorials as well as user profiles.
+
 * **Update**
 <br />
+
 Users, while logging in, can modify tutorials they've created, edit their comments, and update their bio, avatar, username, and password.
+
 * **Delete**
+
 <br />
 Authenticated users have the option to delete their own tutorials and comments.
+
+# Future Features
+
+* Initially, I had an idea to add a feature to the tutorial creation form. Instead of having an "instructions" section, I wanted to include a section called "steps" at the bottom of the page. In this section, users could provide information using a text field and upload images for each step. They would be able to add as many steps as they wanted. I managed to implement this feature in the backend, but I encountered difficulties while working on it in React. I asked my mentor and reached out to tutor support twice, but unfortunately, I couldn't find a solution. I believe the problem was that each step needed its own model with a connection to the tutorial. However, since the tutorial wasn't technically created until the user clicked the submit button, I struggled to find a way around it. Since I had already spent a lot of time on it, I decided to opt for a simpler solution for now. However, I have kept the step model for future implementation.
 
 # Testing
 ## Manual testing
