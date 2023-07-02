@@ -53,11 +53,17 @@ For every iteration, a dedicated GitHub project board was created. User stories 
 To monitor progress, a project kanban board was employed. User stories were moved across columns labeled 'Todo,' 'In Progress,' and 'Done' based on their status.
 
 **Iteration 1**
+
 ![Iteration 1](../gameversity-react/readme/iteration1-readme.PNG)
+
 **Iteration 2**
+
 ![Iteration 2](../gameversity-react/readme/iteration2-readme.PNG)
+
 **Iteration 3**
+
 ![Iteration 3](../gameversity-react/readme/iteration3-readme.PNG)
+
 # Design
 ## Colors
 ## Fonts
@@ -197,6 +203,22 @@ The NavBar component is offering a navigation bar to guide users through the app
 ### **NotFound.js**
 The NotFound component renders a message indicating that the page the user is looking for does not exist.
 
+# CRUD Functionality
+Gameversity provides full Create, Read, Update, and Delete functionality through a user interface developed using React along with the Django Rest Framework API.
+
+* **Create**
+<br />
+Users have the ability to register new accounts. Following registration, they can create their own tutorials and post comments on their own or others' tutorials.
+* **Read**
+<br />
+Both authenticated and unauthenticated users can view and read tutorials as well as user profiles.
+* **Update**
+<br />
+Users, while logging in, can modify tutorials they've created, edit their comments, and update their bio, avatar, username, and password.
+* **Delete**
+<br />
+Authenticated users have the option to delete their own tutorials and comments.
+
 # Testing
 ## Manual testing
 ## Automatic testing
@@ -208,7 +230,9 @@ The NotFound component renders a message indicating that the page the user is lo
 # Deployment
 ## Github
 ### Create Repository
+
 * I created a repository using this [template](https://github.com/Code-Institute-Org/react-ci-template/generate)
+
 * After that I opened it in Gitpod using the green Github button.
 
 <hr />
@@ -230,7 +254,9 @@ npm start
 <hr />
 
 ### React Bootstrap
-* I used React Bootstrap version 4.6.0 and installed it using the steps from [here](https://react-bootstrap-v4.netlify.app/getting-started/introduction)
+* I used React Bootstrap version 4.6.0 and installed it using the steps from 
+[here](https://react-bootstrap-v4.netlify.app/getting-started/introduction)
+
 * In the terminal enter:
 ```
 npm install react-bootstrap bootstrap@4.6.0
