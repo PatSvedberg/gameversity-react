@@ -1,5 +1,7 @@
 # Gameversity - React
 
+[Backend repository](https://github.com/PatSvedberg/gameversity-api)
+
 # Project Goals
 The primary goal of this project is to create a website where game developers can upload their own game development tutorials in text form. There are a lot of video tutorials for game development, but sometimes a smaller tutorial with text and pictures can be easier. This website aims to become a comprehensive hub for game development knowledge, enabling developers from all around the world to share their wisdom and learn from each other. Whether you're an experienced developer with a lot of knowledge to share or a newbie looking for guidance, this site is for you.
 
@@ -54,19 +56,29 @@ To monitor progress, a project kanban board was employed. User stories were move
 
 **Iteration 1**
 
-![Iteration 1](../gameversity-react/readme/iteration1-readme.PNG)
+[LINK](https://github.com/users/PatSvedberg/projects/6)
 
 **Iteration 2**
 
-![Iteration 2](../gameversity-react/readme/iteration2-readme.PNG)
+[LINK](https://github.com/users/PatSvedberg/projects/8)
 
 **Iteration 3**
 
-![Iteration 3](../gameversity-react/readme/iteration3-readme.PNG)
+[LINK](https://github.com/users/PatSvedberg/projects/9)
 
 # Design
 ## Colors
+
+![Picture of color palette](gameversity-react/readme/colors-readme.png)
+
 ## Fonts
+
+Used fonts:
+<br />
+[Anton](https://fonts.google.com/specimen/Anton)
+<br />
+[Roboto](https://fonts.google.com/specimen/Roboto)
+
 # Planning
 ## Mockups
 
@@ -256,10 +268,13 @@ Authenticated users have the option to delete their own tutorials and comments.
 | User | Profile Update bio | A profile owner is able to update profile bio if logged in | Works as expected |
 | User | Profile Update username | A profile owner is able to update profile username if logged in | Works as expected |
 | User | Profile Update password | A profile owner is able to update profile password if logged in | Works as expected |
+| User | NavBar icons | The correct NavBar icons show up  based on login status | Works as expected |
+| User | Popular profiles | List of popular profiles updates based on subscribers | Works as expected |
 
-## Automatic testing
 ## Validator testing
+
 ### ESLint JavaScript validator
+
 Throughout the entire project, we have consistently utilized the ESLint JavaScript validator to validate all JavaScript files. During this validation process, we discovered and resolved the following issues:
 
 * Removal of unnecessary semicolons that were present at the end of certain statements.
@@ -279,6 +294,9 @@ Throughout the entire project, we have consistently utilized the ESLint JavaScri
 ### Lighthouse testing
 
 ![Lighthouse tester screenshot](../gameversity-react/readme/lighthouse-readme.PNG)
+
+# Console.logs
+I have some commented out console.logs that is left in place for future testing
 
 # Unresolved bugs
 

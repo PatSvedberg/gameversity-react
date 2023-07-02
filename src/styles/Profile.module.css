@@ -18,7 +18,7 @@
 
 .SubButton:hover {
     outline: none;
-    box-shadow: 0 0 10px 2px orange;
+    box-shadow: 0 0 10px 2px #ffa500;
     border-color: orange;
     background-color: orange;
     color: black;
@@ -31,6 +31,6 @@
     border-color: orange;
     color: black;
     border: 1px solid white;
-    background-color: white;
+    background-color: #ffffff;
     transform: scale(0.8);
 }
