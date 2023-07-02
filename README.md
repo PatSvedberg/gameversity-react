@@ -51,6 +51,13 @@ The development work was organized into iterations, each spanning one week.
 For every iteration, a dedicated GitHub project board was created. User stories were moved from the product backlog to the relevant iteration as each work cycle commenced. In the iteration-specific project boards, user stories were categorized as 'must have,' 'could have,' or 'should have' goals. Some iterations also included 'tasks' that were not represented as user stories, such as setup/configuration and design/styling.
 
 To monitor progress, a project kanban board was employed. User stories were moved across columns labeled 'Todo,' 'In Progress,' and 'Done' based on their status.
+
+**Iteration 1**
+![Iteration 1](../gameversity-react/readme/iteration1-readme.PNG)
+**Iteration 2**
+![Iteration 2](../gameversity-react/readme/iteration2-readme.PNG)
+**Iteration 3**
+![Iteration 3](../gameversity-react/readme/iteration3-readme.PNG)
 # Design
 ## Colors
 ## Fonts
@@ -141,6 +148,54 @@ The 'Edit Profile' option takes users to a separate page where they can update t
 When you visit another user's profile, you will see a 'Subscribe' button. Clicking this button subscribes you to the user, meaning their tutorials will now appear in your tutorial feed. The 'Subscribe' button then changes to an 'Unsubscribe' button.
 ### Unsubscribe
 If you're already subscribed to a user, the 'Subscribe' button will be replaced with an 'Unsubscribe' button. Clicking this button will unsubscribe you from the user, and their tutorials will no longer appear in your tutorial feed.
+
+# Re-used components
+A number of reusable React components were created with the intention of reducing code duplication.
+### **Avatar.js**
+I've got a reusable component called Avatar.js. A profile picture that is shown in the profile page, on posted tutorials on comments and in the feed of popular users
+<hr>
+
+### **Asset.js**
+The Asset component is a versatile component in our React application. It's designed to display a spinner, an image, and a message based on the passed props.
+<br />
+**Spinner**
+<br />
+The Asset component can display a spinner, which is a circular loading indicator from the React-Bootstrap library. The spinner is rendered when the spinner prop is passed with a truthy value. This can be useful to indicate a loading state in the application.
+<br />
+
+**Image**
+<br />
+The Asset component can display an image. The image is rendered when the src prop is passed with a string representing the image source.
+
+**Message**
+<br />
+The Asset component can display a custom message. The message is rendered when the message prop is passed with a string. This can be used to provide additional information to the user, such as error messages or instructions.
+
+<hr>
+
+### **MoreDropdown.js**
+The MoreDropdown.js component is integrated into the Gameversity application to provide users with additional options pertaining to their user profiles, tutorials, and comments. Identified by an icon consisting of three dots, users can interact with this component to access various editing and deleting functions.
+<br />
+<br />
+**Edit and Delete Options**
+<br />
+The MoreDropdown.js component provides users with the capability to edit and delete their tutorials and comments. It is designed to offer a user-friendly interface where users can easily manage their content.
+
+Profile Management
+In addition to managing tutorials and comments, users can also use the MoreDropdown.js component to modify their profile details. This includes editing their profile bio, changing their avatar, updating their username, or changing their password.
+
+Iconic Representation
+The component is represented by an icon of three dots, a universal symbol for more options. This makes it intuitive for users to locate and utilize this component.
+
+<hr>
+
+### **NavBar.js**
+The NavBar component is offering a navigation bar to guide users through the application. It can be found from evey page of the site.
+
+<hr>
+
+### **NotFound.js**
+The NotFound component renders a message indicating that the page the user is looking for does not exist.
 
 # Testing
 ## Manual testing
