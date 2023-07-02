@@ -11,6 +11,7 @@ import Asset from "../../components/Asset";
 import { Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import btnStyles from "../../styles/Button.module.css";
 
 function TutorialEditForm() {
   const [setErrors] = useState({});
@@ -140,50 +141,58 @@ function TutorialEditForm() {
             <h2>Edit your tutorial</h2>
             <div className="text-center">
               <Form.Group>
-                <Form.Label>Title</Form.Label>
+                <label htmlFor="title">Title</label>
                 <Form.Control
                   type="text"
                   name="title"
                   value={title}
                   onChange={handleChange}
+                  id="title"
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Description</Form.Label>
+                <label htmlFor="description">Description</label>
                 <Form.Control
                   as="textarea"
                   rows={6}
                   name="description"
                   value={description}
                   onChange={handleChange}
+                  id="description"
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Image</Form.Label>
                 {image ? (
                   <>
+                    <label htmlFor="image-display">Image</label>
                     <figure>
-                      <Image className={appStyles.Image} src={image} rounded />
+                      <Image
+                        className={appStyles.Image}
+                        src={image}
+                        rounded
+                        alt="Tutorial"
+                      />
                     </figure>
                     <div>
-                      <Form.Label
-                        className={styles.FormButton}
+                      <label
+                        className={`${btnStyles.Button} ${btnStyles.Blue}`}
                         htmlFor="image-upload"
                       >
                         Change <br /> the image
-                      </Form.Label>
+                      </label>
                     </div>
                   </>
                 ) : (
-                  <Form.Label
+                  <label
                     className="d-flex justify-content-center"
                     htmlFor="image-upload"
                   >
                     <Asset
                       src={Upload}
                       message="Click or tap to upload a tutorial image"
+                      alt="Upload Icon"
                     />
-                  </Form.Label>
+                  </label>
                 )}
                 <Form.File
                   id="image-upload"
@@ -193,58 +202,66 @@ function TutorialEditForm() {
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Coding Language</Form.Label>
+                <label htmlFor="language">Coding Language</label>
                 <Form.Control
                   type="text"
                   name="language"
                   value={language}
                   onChange={handleChange}
+                  id="language"
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Game Engine</Form.Label>
+                <label htmlFor="engine">Game Engine</label>
                 <Form.Control
                   type="text"
                   name="engine"
                   value={engine}
                   onChange={handleChange}
+                  id="engine"
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Game Engine Version</Form.Label>
+                <label htmlFor="engine_version">Game Engine Version</label>
                 <Form.Control
                   type="text"
                   name="engine_version"
                   value={engine_version}
                   onChange={handleChange}
+                  id="engine_version"
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Theme</Form.Label>
+                <label htmlFor="theme">Theme</label>
                 <Form.Control
                   type="text"
                   name="theme"
                   value={theme}
                   onChange={handleChange}
+                  id="theme"
                 />
               </Form.Group>
               <Form.Group>
-                <Form.Label>Instructions</Form.Label>
+                <label htmlFor="instructions">Instructions</label>
                 <Form.Control
                   as="textarea"
                   rows={6}
                   name="instructions"
                   value={instructions}
                   onChange={handleChange}
+                  id="instructions"
                 />
               </Form.Group>
               <Button
-                className={styles.FormButton}
+                className={`${btnStyles.Button} ${btnStyles.Blue}`}
                 onClick={() => history.goBack()}
               >
                 Cancel
               </Button>
-              <Button className={styles.FormButton} type="submit">
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                type="submit"
+              >
                 Save
               </Button>
             </div>

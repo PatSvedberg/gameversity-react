@@ -89,8 +89,9 @@ const ProfileEditForm = () => {
   const textFields = (
     <>
       <Form.Group>
-        <Form.Label>Bio</Form.Label>
+        <label htmlFor="bioField">Bio</label>
         <Form.Control
+          id="bioField"
           as="textarea"
           value={content}
           onChange={handleChange}
@@ -108,10 +109,10 @@ const ProfileEditForm = () => {
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
       >
-        cancel
+        Cancel
       </Button>
       <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-        save
+        Save
       </Button>
     </>
   );
@@ -124,7 +125,8 @@ const ProfileEditForm = () => {
             <Form.Group>
               {image && (
                 <figure>
-                  <Image src={image} fluid />
+                  <Image src={image} fluid alt="Profile Image" />
+                  <Form.Label>Profile Image</Form.Label>
                 </figure>
               )}
               {errors?.image?.map((message, idx) => (

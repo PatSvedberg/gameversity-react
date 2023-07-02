@@ -63,14 +63,16 @@ const UsernameForm = () => {
         <Container className={appStyles.Content}>
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
-              <Form.Label>Change username</Form.Label>
+              <Form.Label htmlFor="username">Change username</Form.Label>
               <Form.Control
+                id="username"
                 placeholder="username"
                 type="text"
                 value={username}
                 onChange={(event) => setUsername(event.target.value)}
               />
             </Form.Group>
+
             {errors?.username?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
@@ -80,13 +82,13 @@ const UsernameForm = () => {
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
               onClick={() => history.goBack()}
             >
-              cancel
+              Cancel
             </Button>
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
               type="submit"
             >
-              save
+              Save
             </Button>
           </Form>
         </Container>
