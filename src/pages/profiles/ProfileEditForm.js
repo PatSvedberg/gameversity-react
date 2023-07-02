@@ -126,7 +126,6 @@ const ProfileEditForm = () => {
               {image && (
                 <figure>
                   <Image src={image} fluid alt="Profile Image" />
-                  <Form.Label>Profile Image</Form.Label>
                 </figure>
               )}
               {errors?.image?.map((message, idx) => (
@@ -156,6 +155,7 @@ const ProfileEditForm = () => {
                 }}
               />
             </Form.Group>
+
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>

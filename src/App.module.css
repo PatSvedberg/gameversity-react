@@ -85,5 +85,13 @@ figure {
   background: #555;
 }
 
+@media (max-width: 375px) {
+
+  .Content {
+    margin-top: 40px;
+  }
+  
+}
+
 
   
