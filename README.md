@@ -396,7 +396,13 @@ Throughout the entire project, we have consistently utilized the ESLint JavaScri
 # Console.logs
 I have some commented out console.logs that is left in place for future testing
 
-# Unresolved bugs
+# Resolved Bugs
+
+* Fixed a bug where comment fields were not cleared after submitting a comment.
+* Fixed a bug where the comment counter was not automatically updated after submitting a new comment.
+* Fixed the problem of submitting empty fields, which used to result in an error. Now, it provides a warning about which fields need to be filled in. The same applies to editing a tutorial.
+
+# Unresolved Bugs
 
 * From the URL, a user can enter an edit form for a tutorial that doesn't exist. However, the form field will not be filled with any pre-existing information, and it is important to note that they will not have the ability to edit tutorials created by someone else.
 
