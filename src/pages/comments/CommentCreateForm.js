@@ -13,7 +13,7 @@ import btnStyles from "../../styles/Button.module.css";
  * Component for creating a comment.
  */
 function CommentCreateForm(props) {
-  const { tutorial, setTutorial, setComments, profileImage, profile_id } =
+  const { tutorial, setTutorials, setComments, profileImage, profile_id } =
     props;
   const [comment, setComment] = useState("");
 
@@ -34,7 +34,7 @@ function CommentCreateForm(props) {
         results: [data, ...prevComments.results],
       }));
       // The function to update the tutorial data.
-      setTutorial((prevTutorial) => ({
+      setTutorials((prevTutorial) => ({
         results: [
           {
             ...prevTutorial.results[0],
@@ -58,7 +58,7 @@ function CommentCreateForm(props) {
           </Link>
           <Form.Control
             className={styles.Form}
-            placeholder="my comment..."
+            placeholder="My comment..."
             as="textarea"
             value={comment}
             onChange={handleChange}
