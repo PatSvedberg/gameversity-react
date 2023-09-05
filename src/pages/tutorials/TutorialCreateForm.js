@@ -13,6 +13,8 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 import btnStyles from "../../styles/Button.module.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // Component for creating a tutorial form.
 function TutorialCreateForm() {
@@ -44,7 +46,7 @@ function TutorialCreateForm() {
   const imageInput = useRef(null);
   const history = useHistory();
 
-  //Event handler for input field changes.
+  // Event handler for input field changes.
   const handleChange = (event) => {
     setPostData({
       ...postData,
@@ -52,7 +54,7 @@ function TutorialCreateForm() {
     });
   };
 
-  //Event handler for image upload input field.
+  // Event handler for image upload input field.
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -67,6 +69,25 @@ function TutorialCreateForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
+    const emptyFields = [];
+
+    if (!title) emptyFields.push("• Title");
+    if (!description) emptyFields.push("• Description");
+    if (!language) emptyFields.push("• Coding Language");
+    if (!engine) emptyFields.push("• Game Engine");
+    if (!engine_version) emptyFields.push("• Game Engine Version");
+    if (!theme) emptyFields.push("• Theme");
+    if (!instructions) emptyFields.push("• Instructions");
+
+    if (emptyFields.length > 0) {
+      // Display a toast notification to the user with the list of empty fields
+      toast.error(
+        `Please fill out the following required fields:\n${emptyFields
+          .map((item) => item + "\n")
+          .join("")}`
+      );
+      return;
+    }
 
     // Add other form data fields
     formData.append("title", title);
@@ -84,7 +105,9 @@ function TutorialCreateForm() {
       // Perform client-side validation for image size
       if (file.size > 2 * 1024 * 1024) {
         // Display a warning to the user
-        alert("Image size is larger than 2MB. Please choose a smaller image.");
+        toast.error(
+          "Image size is larger than 2MB. Please choose a smaller image."
+        );
         return;
       }
 
@@ -112,7 +135,7 @@ function TutorialCreateForm() {
       <Row>
         <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
           <Container className={styles.FullForm}>
-            <h2>Create you own tutorial</h2>
+            <h2>Create your own tutorial</h2>
             <div className="text-center">
               <Form.Group>
                 <label htmlFor="title">Title</label>

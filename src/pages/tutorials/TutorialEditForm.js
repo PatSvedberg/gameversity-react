@@ -12,6 +12,8 @@ import { Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Button.module.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function TutorialEditForm() {
   const [setErrors] = useState({});
@@ -106,6 +108,25 @@ function TutorialEditForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
+    const emptyFields = [];
+
+    if (!title) emptyFields.push("• Title");
+    if (!description) emptyFields.push("• Description");
+    if (!language) emptyFields.push("• Coding Language");
+    if (!engine) emptyFields.push("• Game Engine");
+    if (!engine_version) emptyFields.push("• Game Engine Version");
+    if (!theme) emptyFields.push("• Theme");
+    if (!instructions) emptyFields.push("• Instructions");
+
+    if (emptyFields.length > 0) {
+      // Display a toast notification to the user with the list of empty fields
+      toast.error(
+        `Please fill out the following required fields:\n${emptyFields
+          .map((item) => item + "\n")
+          .join("")}`
+      );
+      return;
+    }
 
     // Append form data to the formData object
     formData.append("title", title);

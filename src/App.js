@@ -16,6 +16,8 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import NotFound from "./components/NotFound";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -87,6 +89,7 @@ function App() {
           />
           <Route render={() => <NotFound />} />
         </Switch>
+        <ToastContainer position="top-right" autoClose={5000} />
       </Container>
     </div>
   );
