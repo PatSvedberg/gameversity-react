@@ -401,6 +401,7 @@ I have some commented out console.logs that is left in place for future testing
 * Fixed a bug where comment fields were not cleared after submitting a comment.
 * Fixed a bug where the comment counter was not automatically updated after submitting a new comment.
 * Fixed the problem of submitting empty fields, which used to result in an error. Now, it provides a warning about which fields need to be filled in. The same applies to editing a tutorial.
+* Fixed a bug where the user was not able to log back in or sign up if they logged out of their account. Although they could log back in by refreshing the page. This problem seemed to only occur on Chrome and not on Firefox.
 
 # Unresolved Bugs
 
