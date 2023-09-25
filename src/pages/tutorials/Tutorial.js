@@ -238,7 +238,7 @@ const Tutorial = (props) => {
               {currentUser ? (
                 <CommentCreateForm
                   profile_id={currentUser.profile_id}
-                  profileImage={profile_image}
+                  profileImage={currentUser.profile_image} // Use currentUser's profile image
                   tutorial={id}
                   setTutorials={setTutorials}
                   setComments={setComments}
